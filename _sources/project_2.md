@@ -364,15 +364,20 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.tree import DecisionTreeRegressor
 
-# Memisahkan data fitur dan target
-target_column = 'Index'  # Sesuaikan dengan nama kolom target Anda
-X = df.drop(columns=target_column, errors='ignore')
+# Periksa nama kolom dalam DataFrame
+print("Kolom dalam DataFrame:", df.columns)
+
+# Ganti target_column dengan kolom target yang sesuai
+target_column = 'Harga_Asli'  # Sesuaikan dengan nama kolom target yang benar
+
+# Memastikan target_column ada di DataFrame
+X = df.drop(columns=[target_column])
 y = df[target_column]
 
 # Menghapus kolom bertipe datetime jika ada
 X = X.select_dtypes(exclude=['datetime64'])
 
-# Alternatif: Mengonversi kolom datetime ke format numerik (opsional)
+# Konversi kolom 'Tanggal' ke format numerik jika ada
 if 'Tanggal' in df.columns:
     X['Tanggal'] = (df['Tanggal'] - df['Tanggal'].min()).dt.days
 
@@ -394,6 +399,7 @@ rmse = np.sqrt(mse)
 
 print("Mean Squared Error (MSE) dari Decision Tree Regressor:", mse)
 print("Root Mean Squared Error (RMSE) dari Decision Tree Regressor:", rmse)
+
 ```
 
 ### Kesimpulan

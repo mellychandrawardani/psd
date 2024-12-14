@@ -1,0 +1,914 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Laporan Project 1 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'project_1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="project_2.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Laporan Project 1</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fproject_1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/project_1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Laporan Project 1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Laporan Project 1</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">Pendahuluan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">Latar Belakang</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumusan-masalah">Rumusan Masalah</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">Tujuan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodologi">Metodologi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">Data Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sumber-data">a. Sumber Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">import library</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data-csv">Membaca data CSV</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengubah-kolom-date-dalam-format-datetime">mengubah kolom ‘Date’ dalam format datetime</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengatur-kolom-date-sebagai-indeks">Mengatur kolom ‘Date’ sebagai indeks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mensortir-data-berdasarkan-kolom-date-dari-terkecil-ke-terbesar">Mensortir data berdasarkan kolom Date dari terkecil ke terbesar</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-deskripsi-data">b. Deskripsi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-eksplorasi-data">C. Eksplorasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#korelasi-antar-fitur">Korelasi antar fitur</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data Preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-menghapus-fitur-yang-tidak-relevan">a. Menghapus fitur yang tidak relevan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-rekayasa-fitur">b. Rekayasa Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-normalisasi-data">c. Normalisasi Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inisialisasi-scaler-untuk-fitur-input-dan-target-output">Inisialisasi scaler untuk fitur (input) dan target (output)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-fitur-open-high-low-close-close-target-4-close-target-5">Normalisasi fitur (Open, High, Low,, ‘Close’ Close Target-4, Close Target-5)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-target-close-target">Normalisasi target (Close Target)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gabungkan-kembali-dataframe-yang-sudah-dinormalisasi">Gabungkan kembali dataframe yang sudah dinormalisasi</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-pembagian-data">a. Pembagian Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengatur-fitur-x-dan-target-y">Mengatur fitur (X) dan target (y)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membagi-data-menjadi-training-dan-testing-60-training-40-testing">Membagi data menjadi training dan testing (60% training, 40% testing)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#daftar-model-regresi">Daftar model regresi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary-untuk-menyimpan-hasil-evaluasi">Dictionary untuk menyimpan hasil evaluasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iterasi-setiap-model">Iterasi setiap model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilkan-hasil-evaluasi">Tampilkan hasil evaluasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilkan-model-terbaik">Tampilkan model terbaik</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment">DEPLOYMENT</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="laporan-project-1">
+<h1>Laporan Project 1<a class="headerlink" href="#laporan-project-1" title="Link to this heading">#</a></h1>
+<section id="pendahuluan">
+<h2>Pendahuluan<a class="headerlink" href="#pendahuluan" title="Link to this heading">#</a></h2>
+<section id="latar-belakang">
+<h3>Latar Belakang<a class="headerlink" href="#latar-belakang" title="Link to this heading">#</a></h3>
+<p style="text-indent: 50px; text-align: justify;">Ethereum (ETH) adalah mata uang kripto terdesentralisasi yang memanfaatkan teknologi blockchain untuk menjalankan kontrak pintar dan aplikasi terdesentralisasi (dApps). Ethereum terkenal karena kemampuannya mendukung pengembangan platform DeFi dan NFT, yang membuatnya populer di kalangan investor dan pengemban.</p>
+<p style="text-indent: 50px; text-align: justify;">Namun, harga Ethereum, seperti halnya cryptocurrency lainnya, sangat fluktuatif, dipengaruhi oleh faktor seperti perkembangan teknologi, adopsi pasar, kebijakan pemerintah, dan sentimen pasar global. Fluktuasi harga ini sering kali membuat investor kesulitan dalam membuat keputusan investasi yang tepat.</p>
+<p style="text-indent: 50px; text-align: justify;">Untuk membantu investor mengatasi ketidakpastian harga Ethereum, teknologi prediksi dapat digunakan untuk memperkirakan pergerakan harga di masa depan. Dengan menganalisis data historis, pendekatan ini dapat mengurangi risiko dan mendukung pengambilan keputusan investasi yang lebih tepat.</p>
+</section>
+<section id="rumusan-masalah">
+<h3>Rumusan Masalah<a class="headerlink" href="#rumusan-masalah" title="Link to this heading">#</a></h3>
+<p style="text-indent: 50px; text-align: justify;">Ethereum menghadapi fluktuasi harga yang dipengaruhi oleh berbagai faktor eksternal, seperti sentimen pasar dan kebijakan ekonomi global. Oleh karena itu, diperlukan pendekatan yang lebih efektif untuk memprediksi pergerakan harga Ethereum agar investor dapat mengantisipasi perubahan harga yang cepat dan membuat keputusan yang lebih baik.</p>
+</section>
+<section id="tujuan">
+<h3>Tujuan<a class="headerlink" href="#tujuan" title="Link to this heading">#</a></h3>
+<p style="text-indent: 50px; text-align: justify;">Tujuan utama dari proyek ini adalah untuk memprediksi harga Ethereum di masa depan berdasarkan data historis harga, sehingga dapat membantu investor mengurangi risiko dan membuat keputusan investasi yang lebih informasional dalam pasar yang sangat volatil</p>
+</section>
+</section>
+<section id="metodologi">
+<h2>Metodologi<a class="headerlink" href="#metodologi" title="Link to this heading">#</a></h2>
+<section id="data-understanding">
+<h3>Data Understanding<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h3>
+<section id="a-sumber-data">
+<h4>a. Sumber Data<a class="headerlink" href="#a-sumber-data" title="Link to this heading">#</a></h4>
+<p style="text-indent: 50px; text-align: justify;">Data yang digunakan dalam proyek ini diperoleh dari platform Yahoo Finance, yang dapat diakses di https://finance.yahoo.com/quote/ETH-USD/. Platform ini menawarkan informasi tentang harga Ethereum (ETH) terhadap dolar AS (USD) dalam berbagai periode waktu, termasuk harga penutupan, perubahan harga harian, dan fitur analisis pasar lainnya. Untuk proyek ini, digunakan data harga Ethereum dalam format CSV, dengan rentang waktu dari 10 April 2020 hingga 5 Desember 2024.</p>
+<p>{code-cell} python</p>
+</section>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="import-library">
+<h1>import library<a class="headerlink" href="#import-library" title="Link to this heading">#</a></h1>
+<p>import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.linear_model import LinearRegression, Ridge
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_percentage_error
+import seaborn as sns
+import matplotlib.pyplot as plt</p>
+<p>{code-cell} python</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="membaca-data-csv">
+<h1>Membaca data CSV<a class="headerlink" href="#membaca-data-csv" title="Link to this heading">#</a></h1>
+<p>df = pd.read_csv(’<a class="reference external" href="https://raw.githubusercontent.com/vaniawrenda/dataset/refs/heads/main/etherium.csv">https://raw.githubusercontent.com/vaniawrenda/dataset/refs/heads/main/etherium.csv</a>’)
+pd.options.display.float_format = ‘{:.0f}’.format
+print(df.head())</p>
+<p style="text-indent: 50px; text-align: justify;">
+Selanjutnya, untuk memastikan kolom Date diproses dengan benar, kita mengonversinya ke format datetime. Hal ini memungkinkan perbandingan dan analisis berdasarkan waktu yang lebih akurat. Selanjutnya, menjadikan Date sebagai indeks akan mempermudah pencarian data berdasarkan tanggal, sementara penyortiran data memastikan urutannya sesuai dengan waktu yang benar. </p>
+<p>{code-cell} python</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mengubah-kolom-date-dalam-format-datetime">
+<h1>mengubah kolom ‘Date’ dalam format datetime<a class="headerlink" href="#mengubah-kolom-date-dalam-format-datetime" title="Link to this heading">#</a></h1>
+<p>df[‘Date’] = pd.to_datetime(df[‘Date’])</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mengatur-kolom-date-sebagai-indeks">
+<h1>Mengatur kolom ‘Date’ sebagai indeks<a class="headerlink" href="#mengatur-kolom-date-sebagai-indeks" title="Link to this heading">#</a></h1>
+<p>df.set_index(‘Date’, inplace=True)</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mensortir-data-berdasarkan-kolom-date-dari-terkecil-ke-terbesar">
+<h1>Mensortir data berdasarkan kolom Date dari terkecil ke terbesar<a class="headerlink" href="#mensortir-data-berdasarkan-kolom-date-dari-terkecil-ke-terbesar" title="Link to this heading">#</a></h1>
+<p>df = df.sort_values(by=’Date’)
+df.head()</p>
+<section id="b-deskripsi-data">
+<h2>b. Deskripsi Data<a class="headerlink" href="#b-deskripsi-data" title="Link to this heading">#</a></h2>
+<p>Dataset ini memiliki 6 fitur atau kolom dan terdiri dari 1802 baris data. Berikut adalah penjelasan masing-masing atribut:</p>
+<ul class="simple">
+<li><p>Date: Tanggal yang mencatat harga aset koin (format YYYY-MM-DD)</p></li>
+<li><p>Open: Harga pembukaan aset koin pada tanggal tersebut</p></li>
+<li><p>High: Harga tertinggi yang tercatat pada tanggal tersebut</p></li>
+<li><p>Low: Harga terendah yang tercatat pada tanggal tersebut</p></li>
+<li><p>Close: Harga penutupan aset koin pada tanggal tersebut</p></li>
+<li><p>Adj Close: Harga penutupan yang telah disesuaikan dengan pembagian aset, dividen, dan aksi korporasi lainnya</p></li>
+<li><p>Volume: Jumlah transaksi aset koin yang terjadi pada tanggal tersebut</p></li>
+</ul>
+<p>Melihat ringkasan DataFrame.</p>
+<p>{code-cell} python
+<a class="reference external" href="http://df.info">df.info</a>()
+print(‘Ukuran data ‘, df.shape)</p>
+<p>Berdasarkan hasil output diatas, DataFrame memiliki 1802 baris dengan indeks yang dimulai dari 0.</p>
+<p>{code-cell} python
+df.dtypes</p>
+<p><b>Jenis Data</b>
+Jenis Data</p>
+<ul class="simple">
+<li><p>Open: Merupakan data numerik dengan tipe data float64, karena harga pembukaan aset koin dapat memiliki nilai pecahan dan bersifat kontinu.</p></li>
+<li><p>High: Merupakan data numerik dengan tipe data float64, karena harga tertinggi yang dicapai dapat berupa nilai pecahan dan bersifat kontinu.</p></li>
+<li><p>Low: Merupakan data numerik dengan tipe data float64, karena harga terendah yang tercatat dapat berupa nilai pecahan dan bersifat kontinu.</p></li>
+<li><p>Close: Merupakan data numerik dengan tipe data float64, karena harga penutupan aset koin dapat memiliki nilai pecahan dan bersifat kontinu.</p></li>
+<li><p>Adj Close: Merupakan data numerik dengan tipe data float64, karena harga penutupan yang disesuaikan dapat berupa nilai pecahan dan bersifat kontinu.</p></li>
+<li><p>Volume: Merupakan data numerik dengan tipe data int64, karena jumlah aset koin yang diperdagangkan adalah bilangan bulat dan dapat dihitung secara diskrit.</p></li>
+</ul>
+</section>
+<section id="c-eksplorasi-data">
+<h2>C. Eksplorasi Data<a class="headerlink" href="#c-eksplorasi-data" title="Link to this heading">#</a></h2>
+<p style="text-indent: 50px; text-align: justify;">Sebelum melakukan eksplorasi data, mencari missing value</p>
+<p>{code-cell} python
+df.isnull().sum()
+df</p>
+<p style="text-indent: 50px; text-align: justify;"> 
+Setelah dipastikan tidak ada missing value, langkah berikutnya adalah membuat visualisasi tren data untuk setiap kolom menggunakan matplotlib dan seaborn. Grafik garis dibuat dengan tanggal sebagai sumbu X dan nilai kolom sebagai sumbu Y untuk menunjukkan perubahan nilai seiring waktu.</p>
+<p>{code-cell} python
+import matplotlib.pyplot as plt
+import seaborn as sns
+for col in df:
+plt.figure(figsize=(7, 3))
+sns.lineplot(data=df, x=’Date’, y=col)
+plt.title(f’Trend of {col}’)
+plt.xlabel(‘Date’)
+plt.ylabel(col)
+plt.grid(True)
+plt.xticks(rotation=45)
+plt.show()</p>
+<p>{code-cell} python
+print(df.describe())</p>
+<p>Memberikan informasi statistik dekskriptif dari kolom numerik.</p>
+<ol class="arabic simple">
+<li><p>count: Menghitung jumlah entri yang tidak kosong (valid) dalam kolom.</p></li>
+<li><p>mean: Menghitung rata-rata dari semua nilai dalam kolom.</p></li>
+<li><p>std: Menghitung standar deviasi, yang mengukur seberapa tersebar nilai-nilai dalam kolom dari rata-rata.</p></li>
+<li><p>min: Menunjukkan nilai minimum atau terkecil dalam kolom.</p></li>
+<li><p>25%: Kuartil pertama, yang berarti 25% dari data memiliki nilai lebih rendah dari atau sama dengan nilai ini.</p></li>
+<li><p>50% (Median): Kuartil kedua, yang berarti nilai tengah dari data—50% dari data berada di bawah atau di atas nilai ini.</p></li>
+<li><p>75%: Kuartil ketiga, yang berarti 75% dari data berada di bawah atau sama dengan nilai ini.</p></li>
+<li><p>max: Menunjukkan nilai maksimum atau tertinggi dalam kolom.</p></li>
+</ol>
+<section id="korelasi-antar-fitur">
+<h3>Korelasi antar fitur<a class="headerlink" href="#korelasi-antar-fitur" title="Link to this heading">#</a></h3>
+<p style="text-indent: 50px; text-align: justify;">Selanjutnya, membuat heatmap digunakan untuk memahami hubungan antar fitur dalam dataset. Heatmap ini membantu mengidentifikasi korelasi kuat atau lemah antar fitur, sehingga memudahkan dalam memilih fitur yang relevan untuk analisis atau pembuatan model prediksi. Dengan demikian, dapat mengoptimalkan kinerja model dan menghindari potensi masalah seperti multikolinearitas.</p>
+<p>{code-cell} python
+correlation_matrix = df.corr()</p>
+<p>plt.figure(figsize=(7, 3))
+sns.heatmap(correlation_matrix, annot=True, cmap=’coolwarm’, linewidths=0.5)
+plt.title(‘Heatmap Korelasi Antar Fitur’)
+plt.show()</p>
+<p style="text-indent: 50px; text-align: justify;">Hasil korelasi pada heatmap menunjukkan bahwa fitur "Open," "High," "Low," "Close," dan "Adj Close" memiliki hubungan sangat kuat dengan nilai korelasi mendekati 1, menandakan keterkaitan yang tinggi. Sebaliknya, fitur "Volume" memiliki korelasi lemah (sekitar 0,26-0,27) terhadap fitur lainnya, sehingga perubahan pada "Volume" tidak terlalu memengaruhi fitur-fitur tersebut.</p>
+</section>
+</section>
+<section id="data-preprocessing">
+<h2>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Link to this heading">#</a></h2>
+<section id="a-menghapus-fitur-yang-tidak-relevan">
+<h3>a. Menghapus fitur yang tidak relevan<a class="headerlink" href="#a-menghapus-fitur-yang-tidak-relevan" title="Link to this heading">#</a></h3>
+<p style="text-indent: 50px; text-align: justify;">Dalam proses perhitungan matriks korelasi, ditemukan bahwa fitur 'Volume' tidak relevan atau tidak memiliki pengaruh signifikan terhadap fitur lainnya, sehingga fitur ini akan dihapus. Selain itu, fitur 'Adj Close' yang memiliki nilai identik dengan fitur 'Close' juga akan dihilangkan.</p>
+<p>{code-cell} python
+df = df.drop(columns=[‘Volume’, ‘Adj Close’])
+df.head()</p>
+</section>
+<section id="b-rekayasa-fitur">
+<h3>b. Rekayasa Fitur<a class="headerlink" href="#b-rekayasa-fitur" title="Link to this heading">#</a></h3>
+<p style="text-indent: 50px; text-align: justify;">Dalam penelitian ini, fokusnya adalah memprediksi harga penutupan (Close) untuk hari berikutnya. Oleh karena itu, diperlukan penambahan variabel baru sebagai target. Variabel ini berguna untuk memahami potensi penurunan harga saham, sehingga investor dapat memanfaatkan prediksi tersebut untuk membeli aset saat harga sedang rendah, meningkatkan peluang keuntungan ketika harga kembali naik.</P>
+<p>{code-cell} python
+df[‘Close Target’] = df[‘Close’].shift(-1)</p>
+<p>df = df[:-1]
+df.head()</p>
+<p style="text-indent: 50px; text-align: justify;">Dataset yang telah diproses hingga siap digunakan menunjukkan bahwa fitur input mencakup Open, High, Low, Close, dan Adj Close pada hari ini. Sementara itu, fitur output berupa Close Target, yaitu prediksi harga Low untuk hari berikutnya.</p>
+</section>
+<section id="c-normalisasi-data">
+<h3>c. Normalisasi Data<a class="headerlink" href="#c-normalisasi-data" title="Link to this heading">#</a></h3>
+<p>{code-cell} python</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="inisialisasi-scaler-untuk-fitur-input-dan-target-output">
+<h1>Inisialisasi scaler untuk fitur (input) dan target (output)<a class="headerlink" href="#inisialisasi-scaler-untuk-fitur-input-dan-target-output" title="Link to this heading">#</a></h1>
+<p>scaler_features = MinMaxScaler()
+scaler_target = MinMaxScaler()</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="normalisasi-fitur-open-high-low-close-close-target-4-close-target-5">
+<h1>Normalisasi fitur (Open, High, Low,, ‘Close’ Close Target-4, Close Target-5)<a class="headerlink" href="#normalisasi-fitur-open-high-low-close-close-target-4-close-target-5" title="Link to this heading">#</a></h1>
+<p>df_features_normalized = pd.DataFrame(scaler_features.fit_transform(df[[‘Open’, ‘High’, ‘Low’, ‘Close’]]),
+columns=[‘Open’, ‘High’, ‘Low’, ‘Close’],
+index=df.index)</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="normalisasi-target-close-target">
+<h1>Normalisasi target (Close Target)<a class="headerlink" href="#normalisasi-target-close-target" title="Link to this heading">#</a></h1>
+<p>df_target_normalized = pd.DataFrame(scaler_target.fit_transform(df[[‘Close Target’]]),
+columns=[‘Close Target’],
+index=df.index)</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gabungkan-kembali-dataframe-yang-sudah-dinormalisasi">
+<h1>Gabungkan kembali dataframe yang sudah dinormalisasi<a class="headerlink" href="#gabungkan-kembali-dataframe-yang-sudah-dinormalisasi" title="Link to this heading">#</a></h1>
+<p>df_normalized = pd.concat([df_features_normalized, df_target_normalized], axis=1)
+df_normalized.head()</p>
+<p>Proses di atas melakukan normalisasi data pada fitur input (Open, High, Low, Close) dan target output (Close Target) menggunakan MinMaxScaler.</p>
+<section id="modelling">
+<h2>Modelling<a class="headerlink" href="#modelling" title="Link to this heading">#</a></h2>
+<section id="a-pembagian-data">
+<h3>a. Pembagian Data<a class="headerlink" href="#a-pembagian-data" title="Link to this heading">#</a></h3>
+<p style="text-indent: 50px; text-align: justify;">Langkah berikutnya adalah membagi data menjadi data training dan data testing menggunakan train_test_split, dengan proporsi 80% untuk training dan 20% untuk testing. Setelah pembagian, data training (X_train dan y_train) akan digunakan untuk melatih model, sedangkan data testing (X_test dan y_test) akan digunakan untuk mengevaluasi kinerja model yang telah dilatih.</p>
+<p>{code-cell} python</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mengatur-fitur-x-dan-target-y">
+<h1>Mengatur fitur (X) dan target (y)<a class="headerlink" href="#mengatur-fitur-x-dan-target-y" title="Link to this heading">#</a></h1>
+<p>X = df_normalized[[‘Open’, ‘High’, ‘Low’, ‘Close’]]
+y = df_normalized[‘Close Target’]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="membagi-data-menjadi-training-dan-testing-60-training-40-testing">
+<h1>Membagi data menjadi training dan testing (60% training, 40% testing)<a class="headerlink" href="#membagi-data-menjadi-training-dan-testing-60-training-40-testing" title="Link to this heading">#</a></h1>
+<p>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, shuffle=False)</p>
+<p>{code-cell} python
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.svm import SVR
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.linear_model import LinearRegression, Ridge
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error
+from sklearn.preprocessing import MinMaxScaler</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="daftar-model-regresi">
+<h1>Daftar model regresi<a class="headerlink" href="#daftar-model-regresi" title="Link to this heading">#</a></h1>
+<p>models = {
+“Linear Regression”: LinearRegression(),
+“Decision Tree”: DecisionTreeRegressor(random_state=32),
+“Ridge Regression”: Ridge(alpha=1.0),
+“Support Vector Regression”: SVR(kernel=’rbf’, C=1.0, epsilon=0.1),
+“Random Forest”: RandomForestRegressor(n_estimators=100, random_state=32),
+“KNN Regressor”: KNeighborsRegressor(n_neighbors=5)
+}</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dictionary-untuk-menyimpan-hasil-evaluasi">
+<h1>Dictionary untuk menyimpan hasil evaluasi<a class="headerlink" href="#dictionary-untuk-menyimpan-hasil-evaluasi" title="Link to this heading">#</a></h1>
+<p>results = {}</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="iterasi-setiap-model">
+<h1>Iterasi setiap model<a class="headerlink" href="#iterasi-setiap-model" title="Link to this heading">#</a></h1>
+<p>for name, model in models.items():
+# Latih model
+model.fit(X_train, y_train)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Prediksi pada data uji
+y_pred = model.predict(X_test)
+
+# Evaluasi
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+mape = mean_absolute_percentage_error(y_test, y_pred) * 100  # Dalam persen
+
+# Simpan hasil evaluasi
+results[name] = {&quot;RMSE&quot;: rmse, &quot;MAPE&quot;: mape}
+
+# Kembalikan hasil prediksi ke skala asli
+y_pred_original = scaler_target.inverse_transform(y_pred.reshape(-1, 1))
+y_test_original = scaler_target.inverse_transform(y_test.values.reshape(-1, 1))
+
+# Plot hasil prediksi
+plt.figure(figsize=(15, 6))
+plt.plot(y_test.index, y_test_original, label=&quot;Actual&quot;, color=&quot;blue&quot;)
+plt.plot(y_test.index, y_pred_original, label=f&quot;Predicted ({name})&quot;, color=&quot;red&quot;)
+
+# Tambahkan detail plot
+plt.title(f&#39;Actual vs Predicted Values ({name})&#39;)
+plt.xlabel(&#39;Tanggal&#39;)
+plt.ylabel(&#39;Kurs&#39;)
+plt.legend()
+plt.grid(True)
+
+# Tampilkan plot
+plt.show()
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tampilkan-hasil-evaluasi">
+<h1>Tampilkan hasil evaluasi<a class="headerlink" href="#tampilkan-hasil-evaluasi" title="Link to this heading">#</a></h1>
+<p>print(“HASIL EVALUASI MODEL”)
+best_model = None
+best_rmse = float(‘inf’)
+best_mape = float(‘inf’)</p>
+<p>for model, metrics in results.items():
+print(f”{model}:\n  RMSE: {metrics[‘RMSE’]:.2f}\n  MAPE: {metrics[‘MAPE’]:.2f}%\n”)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Tentukan model terbaik berdasarkan RMSE dan MAPE terkecil
+if metrics[&#39;RMSE&#39;] &lt; best_rmse and metrics[&#39;MAPE&#39;] &lt; best_mape:
+    best_model = model
+    best_rmse = metrics[&#39;RMSE&#39;]
+    best_mape = metrics[&#39;MAPE&#39;]
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tampilkan-model-terbaik">
+<h1>Tampilkan model terbaik<a class="headerlink" href="#tampilkan-model-terbaik" title="Link to this heading">#</a></h1>
+<p>print(f”MODEL TERBAIK:\nModel: {best_model}\nRMSE Terbaik: {best_rmse:.2f}\nMAPE Terbaik: {best_mape:.2f}%”)</p>
+<section id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p style="text-indent: 50px; text-align: justify;">
+Berdasarkan hasil evaluasi, model Linear Regression menunjukkan performa terbaik dengan RMSE sebesar 0.02 dan MAPE sebesar 2.13%. Ini menunjukkan bahwa prediksi model sangat mendekati nilai aktual dengan tingkat kesalahan yang rendah. Model lain seperti Ridge Regression, Random Forest, dan KNN Regressor memiliki hasil yang cukup baik, dengan RMSE yang serupa, tetapi MAPE mereka sedikit lebih tinggi, menunjukkan bahwa meskipun hasil prediksinya akurat, tingkat kesalahannya lebih besar dibandingkan Linear Regression. Sebaliknya, model Support Vector Regression (SVR) memiliki performa yang lebih buruk dengan MAPE sebesar 7.20%, menunjukkan tingkat kesalahan yang lebih tinggi. Kesimpulannya, Linear Regression adalah pilihan terbaik untuk data ini, karena menghasilkan kesalahan yang paling rendah dan paling konsisten dibandingkan dengan model lainnya.</p>
+</section>
+<section id="deployment">
+<h2>DEPLOYMENT<a class="headerlink" href="#deployment" title="Link to this heading">#</a></h2>
+<p><b>Hasil deployment dapat dilihat melalui tautan berikut:</b></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="project_2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Laporan Project 1</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">Pendahuluan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">Latar Belakang</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumusan-masalah">Rumusan Masalah</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">Tujuan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodologi">Metodologi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">Data Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sumber-data">a. Sumber Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">import library</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data-csv">Membaca data CSV</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengubah-kolom-date-dalam-format-datetime">mengubah kolom ‘Date’ dalam format datetime</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengatur-kolom-date-sebagai-indeks">Mengatur kolom ‘Date’ sebagai indeks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mensortir-data-berdasarkan-kolom-date-dari-terkecil-ke-terbesar">Mensortir data berdasarkan kolom Date dari terkecil ke terbesar</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-deskripsi-data">b. Deskripsi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-eksplorasi-data">C. Eksplorasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#korelasi-antar-fitur">Korelasi antar fitur</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data Preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-menghapus-fitur-yang-tidak-relevan">a. Menghapus fitur yang tidak relevan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-rekayasa-fitur">b. Rekayasa Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-normalisasi-data">c. Normalisasi Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inisialisasi-scaler-untuk-fitur-input-dan-target-output">Inisialisasi scaler untuk fitur (input) dan target (output)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-fitur-open-high-low-close-close-target-4-close-target-5">Normalisasi fitur (Open, High, Low,, ‘Close’ Close Target-4, Close Target-5)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-target-close-target">Normalisasi target (Close Target)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gabungkan-kembali-dataframe-yang-sudah-dinormalisasi">Gabungkan kembali dataframe yang sudah dinormalisasi</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-pembagian-data">a. Pembagian Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengatur-fitur-x-dan-target-y">Mengatur fitur (X) dan target (y)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membagi-data-menjadi-training-dan-testing-60-training-40-testing">Membagi data menjadi training dan testing (60% training, 40% testing)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#daftar-model-regresi">Daftar model regresi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary-untuk-menyimpan-hasil-evaluasi">Dictionary untuk menyimpan hasil evaluasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iterasi-setiap-model">Iterasi setiap model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilkan-hasil-evaluasi">Tampilkan hasil evaluasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilkan-model-terbaik">Tampilkan model terbaik</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment">DEPLOYMENT</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

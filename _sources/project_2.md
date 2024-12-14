@@ -109,7 +109,7 @@ print(df.head())
 ```
 
 ##### Normalisasi data
-<p style="text-indent: 50px; text-align: justify;"> Normalisasi min-max</p>
+<p style="text-indent: 50px; text-align: justify;"> Normalisasi Min-Max adalah metode transformasi data untuk menskalakan nilai-nilai dalam rentang tertentu, biasanya antara 0 dan 1, menggunakan rumus: \( X' = \frac{X - X_{min}}{X_{max} - X_{min}} \), di mana \( X \) adalah nilai asli, \( X_{min} \) adalah nilai minimum, dan \( X_{max} \) adalah nilai maksimum dari dataset. Pada tabel hasil normalisasi di atas, semua nilai pada kolom **Harga Telur-4** hingga **Harga Telur** sudah disesuaikan ke rentang 0 hingga 1. Misalnya, nilai awal harga telur yang lebih tinggi mendekati angka 1 (seperti 0.589844 pada **2021-01-29**), sedangkan nilai yang lebih rendah mendekati angka 0 (seperti 0.246094 pada **2021-02-05**). Normalisasi ini membantu meratakan skala data, sehingga lebih cocok untuk digunakan dalam algoritma machine learning atau analisis statistik.</p>
 
 ```{code-cell} python
 # Inisialisasi scaler untuk fitur (input) dan target (output)
@@ -132,7 +132,9 @@ df_normalized.head()
 ```
 
 ##### Mengatur data testing dan training
-<p style="text-indent: 50px; text-align: justify;">.</p>
+<p style="text-indent: 50px; text-align: justify;">Mengatur data *training* dan *testing* adalah proses membagi dataset menjadi dua bagian: satu untuk melatih model (*training set*) dan satu lagi untuk menguji performa model (*testing set*). **Training set** digunakan untuk melatih model agar dapat memahami pola dan karakteristik data. Sedangkan **testing set** digunakan untuk mengevaluasi seberapa baik model yang telah dilatih dapat memprediksi data baru yang belum pernah dilihat sebelumnya. Pembagian 80% untuk *training* dan 20% untuk *testing* atau variasi lain yang sesuai kebutuhan.
+
+Pada **Data Train** terdiri dari 153 baris data historis *Harga Telur* dari periode waktu tertentu, digunakan untuk melatih model. Sementara itu, **Data Testing** memuat data terbaru dari Januari 2024 yang digunakan untuk mengevaluasi performa model prediksi. Pengaturan seperti ini penting agar model tidak hanya "menghafal" data, melainkan mampu melakukan generalisasi dengan baik terhadap data baru.</p>
 
 ```{code-cell} python
 # Mengatur fitur (X) dan target (y)
@@ -204,7 +206,7 @@ print(f'Root Mean Squared Error (RMSE - Random Forest): {rmse_rf:.2f}')
 print(f'Mean Squared Error (MSE - Random Forest): {mse_rf:.2f}')
 print(f'R-squared (R² - Random Forest): {r2_rf:.2f}')
 print(f'Mean Absolute Percentage Error (MAPE - Random Forest): {mape_rf:.2f}%')
-  ```
+```
 
 ```{code-cell} python
 import matplotlib.pyplot as plt
@@ -238,6 +240,7 @@ plt.tight_layout()  # Mengatur tata letak agar tidak ada yang terpotong
 
 # Menampilkan plot
 plt.show()
+```
 
 <p style="text-indent: 50px; text-align: justify;">Model Random Forest menunjukkan performa yang baik:
 Akurasi: 88%
@@ -245,42 +248,6 @@ Precision: 92.3%
 Recall: 81.8%
 R-squared score sebesar 78.2% menunjukkan bahwa model mampu menjelaskan sebagian besar variasi dalam data.
 RMSE rendah (0.315) menunjukkan bahwa tingkat kesalahan prediksi cukup kecil. </p>
-
-### f. Feature Important
-```{code-cell} python
-# Membagi data menjadi fitur dan label
-X = data_df.drop('diabetes', axis=1)
-y = data_df['diabetes']
-
-# Mengkodekan variabel kategorikal jika diperlukan
-X = pd.get_dummies(X, drop_first=True)
-
-# Membagi data menjadi set pelatihan dan pengujian
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# Membuat dan melatih model Random Forest
-model = RandomForestClassifier(random_state=42)
-model.fit(X_train, y_train)
-
-# Menghitung feature importance
-importances = model.feature_importances_
-
-# Membuat DataFrame untuk feature importance
-feature_importance_df = pd.DataFrame({
-    'Feature': X.columns,
-    'Importance': importances
-}).sort_values(by='Importance', ascending=False)
-
-# Menampilkan DataFrame feature importance
-print(feature_importance_df)
-
-# Menampilkan feature importance dalam bentuk grafik
-plt.figure(figsize=(10, 6))
-plt.barh(feature_importance_df['Feature'], feature_importance_df['Importance'], color='skyblue')
-plt.xlabel('Importance')
-plt.title('Feature Importance')
-plt.show()
-```
 
 ### g. Random forest & ensamble baggig
 ```{code-cell} python
@@ -381,6 +348,45 @@ predicted_value_rf = predict_custom_data_rf(user_input)
 # Menampilkan hasil prediksi
 print(f"Prediksi Harga untuk hari selanjutnya adalah: {predicted_value_rf:.2f}")
 ```
+### i. decision tree
+```{code-cell} python
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+from sklearn.tree import DecisionTreeRegressor
+
+# Memisahkan data fitur dan target
+target_column = 'Index'  # Sesuaikan dengan nama kolom target Anda
+X = df.drop(columns=target_column, errors='ignore')
+y = df[target_column]
+
+# Menghapus kolom bertipe datetime jika ada
+X = X.select_dtypes(exclude=['datetime64'])
+
+# Alternatif: Mengonversi kolom datetime ke format numerik (opsional)
+if 'Tanggal' in df.columns:
+    X['Tanggal'] = (df['Tanggal'] - df['Tanggal'].min()).dt.days
+
+# Membagi data menjadi set pelatihan dan pengujian
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Inisialisasi model Decision Tree Regressor
+dt_model = DecisionTreeRegressor(random_state=42)
+
+# Melatih model pada data pelatihan
+dt_model.fit(X_train, y_train)
+
+# Memprediksi hasil pada data uji
+y_pred = dt_model.predict(X_test)
+
+# Menghitung Mean Squared Error (MSE) dan Root Mean Squared Error (RMSE)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+
+print("Mean Squared Error (MSE) dari Decision Tree Regressor:", mse)
+print("Root Mean Squared Error (RMSE) dari Decision Tree Regressor:", rmse)
+```
 
 ### Kesimpulan
-<p style="text-indent: 50px; text-align: justify;">kesimpulan metode random forest tersebut sudah baik karena menghasilkan mse yang kecil yaitu 0.048. fitur yg paling berpengaruh yaitu hba1c_level serta blood_glucose_level.</p>
+<p style="text-indent: 50px; text-align: justify;">kesimpulan metode random forest biasa maupun random forest&ensamble bagging menghasilkan mse yg bagus untuk prediksi ini yaitu 0,00 </p>

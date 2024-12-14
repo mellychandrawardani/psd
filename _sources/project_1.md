@@ -12,299 +12,336 @@ kernelspec:
   name: python3
 ---
 
-# Laporan Project 1
+# Prediksi Penyakit Diabetes
 
 
 ## Pendahuluan 
 
 ### Latar Belakang
 
-<p style="text-indent: 50px; text-align: justify;">Ethereum (ETH) adalah mata uang kripto terdesentralisasi yang memanfaatkan teknologi blockchain untuk menjalankan kontrak pintar dan aplikasi terdesentralisasi (dApps). Ethereum terkenal karena kemampuannya mendukung pengembangan platform DeFi dan NFT, yang membuatnya populer di kalangan investor dan pengemban.</p>
-
-<p style="text-indent: 50px; text-align: justify;">Namun, harga Ethereum, seperti halnya cryptocurrency lainnya, sangat fluktuatif, dipengaruhi oleh faktor seperti perkembangan teknologi, adopsi pasar, kebijakan pemerintah, dan sentimen pasar global. Fluktuasi harga ini sering kali membuat investor kesulitan dalam membuat keputusan investasi yang tepat.</p>
-  
-<p style="text-indent: 50px; text-align: justify;">Untuk membantu investor mengatasi ketidakpastian harga Ethereum, teknologi prediksi dapat digunakan untuk memperkirakan pergerakan harga di masa depan. Dengan menganalisis data historis, pendekatan ini dapat mengurangi risiko dan mendukung pengambilan keputusan investasi yang lebih tepat.</p>
+<p style="text-indent: 50px; text-align: justify;">Diabetes merupakan salah satu penyakit kronis yang terus berkembang dan dapat menyebabkan berbagai komplikasi serius jika tidak terdeteksi sejak dini. Dengan semakin meningkatnya jumlah penderita diabetes, prediksi risiko menjadi langkah krusial untuk mencegah perkembangan penyakit dan mengurangi beban biaya perawatan kesehatan jangka panjang. Pendekatan berbasis prediksi menggunakan faktor gaya hidup dan data klinis memungkinkan klinik kesehatan untuk memproyeksikan kemungkinan seorang pasien mengembangkan diabetes di masa depan. Dengan begitu, tindakan preventif dan intervensi medis yang lebih tepat dapat direncanakan. Sistem prediksi ini juga dapat meningkatkan efisiensi dalam pemanfaatan sumber daya klinik dan mempercepat pelayanan kesehatan preventif.</p>
 
 ### Rumusan Masalah
 
-<p style="text-indent: 50px; text-align: justify;">Ethereum menghadapi fluktuasi harga yang dipengaruhi oleh berbagai faktor eksternal, seperti sentimen pasar dan kebijakan ekonomi global. Oleh karena itu, diperlukan pendekatan yang lebih efektif untuk memprediksi pergerakan harga Ethereum agar investor dapat mengantisipasi perubahan harga yang cepat dan membuat keputusan yang lebih baik.</p>
+<p style="text-indent: 50px; text-align: justify;">1. Bagaimana cara membuat sistem yang dapat memprediksi risiko diabetes dengan akurat?  
+2. Bagaimana hasil prediksi bisa membantu layanan kesehatan mencegah diabetes lebih efektif?  
+3. Apa faktor yang paling mempengaruhi penyakit diabetes?</p>
 
 ### Tujuan 
 
-<p style="text-indent: 50px; text-align: justify;">Tujuan utama dari proyek ini adalah untuk memprediksi harga Ethereum di masa depan berdasarkan data historis harga, sehingga dapat membantu investor mengurangi risiko dan membuat keputusan investasi yang lebih informasional dalam pasar yang sangat volatil</p>
+<p style="text-indent: 50px; text-align: justify;"> 
+1. Membuat sistem yang bisa memprediksi risiko diabetes dengan data kesehatan dan gaya hidup.  
+2. Membantu layanan kesehatan dalam memberikan tindakan pencegahan lebih cepat dan tepat.  
+3. Mengetahui faktor apa yang paling mempengaruhi diabetes.
+
+</p>
 
 
+#### Sumber Data 
+<p style="text-indent: 50px; text-align: justify;">Dataset ini berasal dari Kaggle dan berisi informasi mengenai data diabetes dengan berbagai fitur yang relevan untuk analisis kesehatan. Data ini akan digunakan untuk membangun model prediksi risiko diabetes berdasarkan kolom-kolom yang tersedia.
 
-## Metodologi
+Dataset yang digunakan ini berasal dari file Excel dengan informasi berikut:
+gender: Tipe object (menunjukkan jenis kelamin responden: pria atau wanita).
+age: Tipe int (usia responden dalam tahun).
+hypertension: Tipe int (indikator apakah responden memiliki hipertensi: 0 untuk tidak, 1 untuk ya).
+heart_disease: Tipe int (indikator apakah responden memiliki penyakit jantung: 0 untuk tidak, 1 untuk ya).
+smoking_history: Tipe object (informasi mengenai riwayat merokok responden: 'never', 'current', 'former', atau 'not current').
+bmi: Tipe float64 (Indeks Massa Tubuh dalam kg/m²).
+HbA1c_level: Tipe float64 (level HbA1c dalam persen, indikator kontrol gula darah).
+blood_glucose_level: Tipe float64 (level glukosa darah dalam mg/dL).
+diabetes: Tipe int (indikator apakah responden menderita diabetes: 0 untuk tidak, 1 untuk ya).
+Data ini memberikan gambaran komprehensif mengenai faktor-faktor yang dapat mempengaruhi risiko diabetes pada individu.</p>
 
-### Data Understanding 
-
-#### a. Sumber Data 
-<p style="text-indent: 50px; text-align: justify;">Data yang digunakan dalam proyek ini diperoleh dari platform Yahoo Finance, yang dapat diakses di https://finance.yahoo.com/quote/ETH-USD/. Platform ini menawarkan informasi tentang harga Ethereum (ETH) terhadap dolar AS (USD) dalam berbagai periode waktu, termasuk harga penutupan, perubahan harga harian, dan fitur analisis pasar lainnya. Untuk proyek ini, digunakan data harga Ethereum dalam format CSV, dengan rentang waktu dari 10 April 2020 hingga 5 Desember 2024.</p>
-
-{code-cell} python
-# import library
-import numpy as np
+#### a. data preparation
+```{code-cell} python
+# Data Processing
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.linear_model import LinearRegression, Ridge
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_percentage_error
-import seaborn as sns
+import numpy as np
+
+# Modelling
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score, ConfusionMatrixDisplay, mean_squared_error, r2_score
+from sklearn.model_selection import RandomizedSearchCV, train_test_split
+from scipy.stats import randint
+from sklearn.preprocessing import LabelEncoder
+
+# Visualization
+from sklearn.tree import plot_tree
 import matplotlib.pyplot as plt
-
-
-{code-cell} python
-# Membaca data CSV
-df = pd.read_csv('https://raw.githubusercontent.com/vaniawrenda/dataset/refs/heads/main/etherium.csv')
-pd.options.display.float_format = '{:.0f}'.format
-print(df.head())
-
-<p style="text-indent: 50px; text-align: justify;">
-Selanjutnya, untuk memastikan kolom Date diproses dengan benar, kita mengonversinya ke format datetime. Hal ini memungkinkan perbandingan dan analisis berdasarkan waktu yang lebih akurat. Selanjutnya, menjadikan Date sebagai indeks akan mempermudah pencarian data berdasarkan tanggal, sementara penyortiran data memastikan urutannya sesuai dengan waktu yang benar. </p>
-
-{code-cell} python
-# mengubah kolom 'Date' dalam format datetime
-df['Date'] = pd.to_datetime(df['Date'])
-
-# Mengatur kolom 'Date' sebagai indeks
-df.set_index('Date', inplace=True)
-
-# Mensortir data berdasarkan kolom Date dari terkecil ke terbesar
-df = df.sort_values(by='Date')
-df.head()
-
-
-#### b. Deskripsi Data
-Dataset ini memiliki 6 fitur atau kolom dan terdiri dari 1802 baris data. Berikut adalah penjelasan masing-masing atribut:
-
-- Date: Tanggal yang mencatat harga aset koin (format YYYY-MM-DD)
-- Open: Harga pembukaan aset koin pada tanggal tersebut
-- High: Harga tertinggi yang tercatat pada tanggal tersebut
-- Low: Harga terendah yang tercatat pada tanggal tersebut
-- Close: Harga penutupan aset koin pada tanggal tersebut
-- Adj Close: Harga penutupan yang telah disesuaikan dengan pembagian aset, dividen, dan aksi korporasi lainnya
-- Volume: Jumlah transaksi aset koin yang terjadi pada tanggal tersebut
-
-
-Melihat ringkasan DataFrame.
-
-{code-cell} python
-df.info()
-print('Ukuran data ', df.shape)
-
-Berdasarkan hasil output diatas, DataFrame memiliki 1802 baris dengan indeks yang dimulai dari 0. 
-
-{code-cell} python
-df.dtypes
-
-<b>Jenis Data</b>
-Jenis Data
-
-- Open: Merupakan data numerik dengan tipe data float64, karena harga pembukaan aset koin dapat memiliki nilai pecahan dan bersifat kontinu.
-- High: Merupakan data numerik dengan tipe data float64, karena harga tertinggi yang dicapai dapat berupa nilai pecahan dan bersifat kontinu.
-- Low: Merupakan data numerik dengan tipe data float64, karena harga terendah yang tercatat dapat berupa nilai pecahan dan bersifat kontinu.
-- Close: Merupakan data numerik dengan tipe data float64, karena harga penutupan aset koin dapat memiliki nilai pecahan dan bersifat kontinu.
-- Adj Close: Merupakan data numerik dengan tipe data float64, karena harga penutupan yang disesuaikan dapat berupa nilai pecahan dan bersifat kontinu.
-- Volume: Merupakan data numerik dengan tipe data int64, karena jumlah aset koin yang diperdagangkan adalah bilangan bulat dan dapat dihitung secara diskrit.
-
-#### C. Eksplorasi Data
-
-<p style="text-indent: 50px; text-align: justify;">Sebelum melakukan eksplorasi data, mencari missing value</p>
-
-{code-cell} python
-df.isnull().sum()
-df
-
+import seaborn as sns
+```
+#### b. data wrangling
+```{code-cell} python
+# Membaca data
+data_df = pd.DataFrame(pd.read_excel("https://raw.githubusercontent.com/mellychandrawardani/mellychandrawardani/main/data_diabetes.xlsx"))
+data_df.head()
+```
 
 <p style="text-indent: 50px; text-align: justify;"> 
-Setelah dipastikan tidak ada missing value, langkah berikutnya adalah membuat visualisasi tren data untuk setiap kolom menggunakan matplotlib dan seaborn. Grafik garis dibuat dengan tanggal sebagai sumbu X dan nilai kolom sebagai sumbu Y untuk menunjukkan perubahan nilai seiring waktu.</p>
+Dataset ini memiliki:
+Jumlah Atribut/Feature: 9 (berisi informasi demografis dan kesehatan).
+Jumlah Data: 499 (entri responden).
+Jumlah Label: 1 (status diabetes).
+Jumlah Kelas: 2 (0: tidak diabetes, 1: diabetes).</p>
 
-{code-cell} python
-import matplotlib.pyplot as plt
-import seaborn as sns
-for col in df:
-    plt.figure(figsize=(7, 3))
-    sns.lineplot(data=df, x='Date', y=col)
-    plt.title(f'Trend of {col}')
-    plt.xlabel('Date')
-    plt.ylabel(col)
-    plt.grid(True)
-    plt.xticks(rotation=45)
-    plt.show()
+```{code-cell} python
+kelas = "diabetes"
 
-{code-cell} python
-print(df.describe())
+print(f"Jumlah Atribut/Feature : {len(data_df.axes[1])}")
+print(f"Jumlah Data : {len(data_df.axes[0])}")
+print(f"Jumlah Label : 1 [{kelas}]")
+print(f"Jumlah Kelas : {len(data_df[kelas].unique())} {data_df[kelas].unique()}")
+df.head()
+```
 
-Memberikan informasi statistik dekskriptif dari kolom numerik. 
-1. count: Menghitung jumlah entri yang tidak kosong (valid) dalam kolom.
-2. mean: Menghitung rata-rata dari semua nilai dalam kolom.
-3. std: Menghitung standar deviasi, yang mengukur seberapa tersebar nilai-nilai dalam kolom dari rata-rata.
-4. min: Menunjukkan nilai minimum atau terkecil dalam kolom.
-5. 25%: Kuartil pertama, yang berarti 25% dari data memiliki nilai lebih rendah dari atau sama dengan nilai ini.
-6. 50% (Median): Kuartil kedua, yang berarti nilai tengah dari data—50% dari data berada di bawah atau di atas nilai ini.
-7. 75%: Kuartil ketiga, yang berarti 75% dari data berada di bawah atau sama dengan nilai ini.
-8. max: Menunjukkan nilai maksimum atau tertinggi dalam kolom.
+#### c. exploratory data anaysis
+cek tipe dataset, cek missing value, cek duplikat data
+```{code-cell} python
+# Mengecek tipe dataset
+data_df.info()
+# Mengecek jumlah missing value di setiap kolom
+missing_values = data_df.isnull().sum()
+# Menampilkan hasil
+print("Jumlah missing value per kolom:")
+print(missing_values)
+# Menampilkan persentase missing value
+total_rows = len(data_df)
+missing_percentage = (missing_values / total_rows) * 100
+
+print("\nPersentase missing value per kolom:")
+print(missing_percentage)
+#duplikat data
+data_df.duplicated().sum()
+```
+<p style="text-indent: 50px; text-align: justify;">Hasil analisis missing value dalam dataset menunjukkan bahwa:
+Jumlah Missing Value per Kolom: Semua kolom memiliki 0 missing value, artinya tidak ada data yang hilang dalam setiap atribut.
+Persentase Missing Value per Kolom: Semua kolom juga menunjukkan persentase 0.0%, yang berarti tidak ada nilai yang hilang dari keseluruhan dataset. Dengan tidak adanya missing value, analisis dan pemodelan dapat dilakukan tanpa harus menangani data yang hilang, sehingga meningkatkan kualitas dan akurasi hasil analisis.</p>
+
+#### d. Preprocessing data
+
+<p style="text-indent: 50px; text-align: justify;">label encoding : Encoding digunakan untuk mengubah data kategorikal menjadi format numerik, sehingga dapat digunakan dalam analisis dan algoritma pembelajaran mesin.</p>
+
+```{code-cell} python
+# label encoder
+le = LabelEncoder()
+le_copy = data_df.apply(lambda x: x.unique())
+le_copy_encode = le_copy.apply(lambda x: le.fit_transform(x))
+
+print(f"Atribut diabetes \n{le_copy}\n")
+print(f"Atribut diabetes Encode \n{le_copy_encode}\n")
+```
+```{code-cell} python
+data_df = data_df.apply(lambda x: le.fit_transform(x))
+data_df
+```
 
 ##### Korelasi antar fitur
-<p style="text-indent: 50px; text-align: justify;">Selanjutnya, membuat heatmap digunakan untuk memahami hubungan antar fitur dalam dataset. Heatmap ini membantu mengidentifikasi korelasi kuat atau lemah antar fitur, sehingga memudahkan dalam memilih fitur yang relevan untuk analisis atau pembuatan model prediksi. Dengan demikian, dapat mengoptimalkan kinerja model dan menghindari potensi masalah seperti multikolinearitas.</p>
+<p style="text-indent: 50px; text-align: justify;"> Korelasi antar fitur digunakan untuk memahami hubungan antara variabel dalam dataset</p>
 
-{code-cell} python
-correlation_matrix = df.corr()
-
-plt.figure(figsize=(7, 3))
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', linewidths=0.5)
-plt.title('Heatmap Korelasi Antar Fitur')
+```{code-cell} python
+corr_data_df = data_df.copy()
+corr = corr_data_df.corr()
+fig = plt.figure()
+ax = fig.add_subplot(111)
+cax = ax.matshow(corr,cmap='coolwarm', vmin=0, vmax=1)
+fig.colorbar(cax)
+ticks = np.arange(0,len(corr_data_df.columns),1)
+ax.set_xticks(ticks)
+plt.xticks(rotation=90)
+ax.set_yticks(ticks)
+ax.set_xticklabels(corr_data_df.columns)
+ax.set_yticklabels(corr_data_df.columns)
 plt.show()
+```
 
-<p style="text-indent: 50px; text-align: justify;">Hasil korelasi pada heatmap menunjukkan bahwa fitur "Open," "High," "Low," "Close," dan "Adj Close" memiliki hubungan sangat kuat dengan nilai korelasi mendekati 1, menandakan keterkaitan yang tinggi. Sebaliknya, fitur "Volume" memiliki korelasi lemah (sekitar 0,26-0,27) terhadap fitur lainnya, sehingga perubahan pada "Volume" tidak terlalu memengaruhi fitur-fitur tersebut.</p>
+##### Seleksi Fitur
+<p style="text-indent: 50px; text-align: justify;">Seleksi fitur adalah proses memilih subset fitur yang paling relevan dari dataset untuk digunakan dalam model pembelajaran mesin</p>
 
-### Data Preprocessing
+```{code-cell} python
+main_df = pd.concat([data_df[data_df.columns[0:2]], data_df[data_df.columns[3:]]], axis=1)
+features_df = main_df[main_df.columns[0:-1]]
+labels_df = main_df["diabetes"]
+main_df
+```
 
-#### a. Menghapus fitur yang tidak relevan 
-<p style="text-indent: 50px; text-align: justify;">Dalam proses perhitungan matriks korelasi, ditemukan bahwa fitur 'Volume' tidak relevan atau tidak memiliki pengaruh signifikan terhadap fitur lainnya, sehingga fitur ini akan dihapus. Selain itu, fitur 'Adj Close' yang memiliki nilai identik dengan fitur 'Close' juga akan dihilangkan.</p>
+### e. Modelling 
 
-{code-cell} python
-df = df.drop(columns=['Volume', 'Adj Close'])
-df.head()
+#### random forest 
 
+```{code-cell} python
+train_features, test_features, train_labels, test_labels = train_test_split(features_df, labels_df, test_size = 0.25, random_state=1)
+```
+```{code-cell} python
+rf = RandomForestClassifier()
+# Train the model on training data
+rf.fit(train_features, train_labels);
+```
+```{code-cell} python
+# Create predict for model
+predictions = rf.predict(test_features)
 
-#### b. Rekayasa Fitur
+# Calculate performance metrics for regression
+mse = mean_squared_error(test_labels, predictions)
+rmse = np.sqrt(mse)  # Root Mean Squared Error
+r2 = r2_score(test_labels, predictions)
 
-<p style="text-indent: 50px; text-align: justify;">Dalam penelitian ini, fokusnya adalah memprediksi harga penutupan (Close) untuk hari berikutnya. Oleh karena itu, diperlukan penambahan variabel baru sebagai target. Variabel ini berguna untuk memahami potensi penurunan harga saham, sehingga investor dapat memanfaatkan prediksi tersebut untuk membeli aset saat harga sedang rendah, meningkatkan peluang keuntungan ketika harga kembali naik.</P>
+print('Mean Squared Error:', mse)
+print('Root Mean Squared Error:', rmse)
+print('R-squared:', r2)
+```
+```{code-cell} python
+# Calculate accuracy precision and recall
+accuracy = accuracy_score(test_labels, predictions)
+precision = precision_score(test_labels, predictions)
+recall = recall_score(test_labels, predictions)
+print("Accuracy:", accuracy)
+print("Precision:", precision)
+print("Recall:", recall)
+```
+```{code-cell} python
+# Create the confusion matrix
+cm = confusion_matrix(test_labels, predictions)
 
-{code-cell} python
-df['Close Target'] = df['Close'].shift(-1)
+ConfusionMatrixDisplay(confusion_matrix=cm).plot();
+```
+```{code-cell} python
+# rf = RandomForestClassifier()
+# rf.fit(train_features, train_labels)  # Fit the model
 
-df = df[:-1]
-df.head()
+for i in range(3):
+  # Pick one tree from the forest, e.g., the first tree (index 0)
+  tree_to_plot = rf.estimators_[i]
 
+  name_class = [str(c) for c in tree_to_plot.classes_]
 
-<p style="text-indent: 50px; text-align: justify;">Dataset yang telah diproses hingga siap digunakan menunjukkan bahwa fitur input mencakup Open, High, Low, Close, dan Adj Close pada hari ini. Sementara itu, fitur output berupa Close Target, yaitu prediksi harga Low untuk hari berikutnya.</p>
+  # Plot the decision tree
+  plt.figure(figsize=(30, 20))
+  plot_tree(tree_to_plot, feature_names=features_df.columns, class_names=name_class, filled=True, rounded=True, fontsize=10)
+  plt.title("Decision Tree from Random Forest")
+  plt.show()
+  ```
 
-#### c. Normalisasi Data
+### f. Feature Important
+```{code-cell} python
+# Membagi data menjadi fitur dan label
+X = data_df.drop('diabetes', axis=1)
+y = data_df['diabetes']
 
-{code-cell} python
-# Inisialisasi scaler untuk fitur (input) dan target (output)
-scaler_features = MinMaxScaler()
-scaler_target = MinMaxScaler()
+# Mengkodekan variabel kategorikal jika diperlukan
+X = pd.get_dummies(X, drop_first=True)
 
-# Normalisasi fitur (Open, High, Low,, 'Close' Close Target-4, Close Target-5)
-df_features_normalized = pd.DataFrame(scaler_features.fit_transform(df[['Open', 'High', 'Low', 'Close']]),
-                                      columns=['Open', 'High', 'Low', 'Close'],
-                                      index=df.index)
+# Membagi data menjadi set pelatihan dan pengujian
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Normalisasi target (Close Target)
-df_target_normalized = pd.DataFrame(scaler_target.fit_transform(df[['Close Target']]),
-                                    columns=['Close Target'],
-                                    index=df.index)
+# Membuat dan melatih model Random Forest
+model = RandomForestClassifier(random_state=42)
+model.fit(X_train, y_train)
 
-# Gabungkan kembali dataframe yang sudah dinormalisasi
-df_normalized = pd.concat([df_features_normalized, df_target_normalized], axis=1)
-df_normalized.head()
+# Menghitung feature importance
+importances = model.feature_importances_
 
+# Membuat DataFrame untuk feature importance
+feature_importance_df = pd.DataFrame({
+    'Feature': X.columns,
+    'Importance': importances
+}).sort_values(by='Importance', ascending=False)
 
-<p>Proses di atas melakukan normalisasi data pada fitur input (Open, High, Low, Close) dan target output (Close Target) menggunakan MinMaxScaler.</p>
+# Menampilkan DataFrame feature importance
+print(feature_importance_df)
 
-### Modelling 
+# Menampilkan feature importance dalam bentuk grafik
+plt.figure(figsize=(10, 6))
+plt.barh(feature_importance_df['Feature'], feature_importance_df['Importance'], color='skyblue')
+plt.xlabel('Importance')
+plt.title('Feature Importance')
+plt.show()
+```
 
-#### a. Pembagian Data 
+<p style="text-indent: 50px; text-align: justify;">Dari hasil fitur penting, fitur yang paling berpengaruh terhadap diabetes adalah HbA1c_level dengan nilai 0.400882, menunjukkan kontribusi signifikan dalam memprediksi risiko diabetes. Diikuti oleh blood_glucose_level yang memiliki nilai 0.273806, menandakan bahwa kadar glukosa darah juga berperan besar. Selanjutnya, age dengan nilai 0.131057 menunjukkan bahwa usia merupakan faktor penting, sementara fitur lainnya seperti BMI dan riwayat merokok memiliki pengaruh yang lebih kecil. Ini menunjukkan bahwa kontrol gula darah dan kesehatan metabolik adalah indikator utama risiko diabetes.</p>
 
-
-<p style="text-indent: 50px; text-align: justify;">Langkah berikutnya adalah membagi data menjadi data training dan data testing menggunakan train_test_split, dengan proporsi 80% untuk training dan 20% untuk testing. Setelah pembagian, data training (X_train dan y_train) akan digunakan untuk melatih model, sedangkan data testing (X_test dan y_test) akan digunakan untuk mengevaluasi kinerja model yang telah dilatih.</p>
-
-{code-cell} python
-# Mengatur fitur (X) dan target (y)
-X = df_normalized[['Open', 'High', 'Low', 'Close']]
-y = df_normalized['Close Target']
-
-# Membagi data menjadi training dan testing (60% training, 40% testing)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, shuffle=False)
-
-
-{code-cell} python
-import numpy as np
+### g. Testing data baru
+```{code-cell} python
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
-from sklearn.svm import SVR
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.neighbors import KNeighborsRegressor
-from sklearn.linear_model import LinearRegression, Ridge
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error
-from sklearn.preprocessing import MinMaxScaler
+import numpy as np
 
-# Daftar model regresi
-models = {
-    "Linear Regression": LinearRegression(),
-    "Decision Tree": DecisionTreeRegressor(random_state=32),
-    "Ridge Regression": Ridge(alpha=1.0),
-    "Support Vector Regression": SVR(kernel='rbf', C=1.0, epsilon=0.1),
-    "Random Forest": RandomForestRegressor(n_estimators=100, random_state=32),
-    "KNN Regressor": KNeighborsRegressor(n_neighbors=5)
-}
+# Dataframe yang di-load
+# data_df adalah dataset yang kamu miliki
+# Pastikan sudah ada kolom `diabetes` sebagai target
+# Misalnya: data_df = pd.read_csv('path_to_file.csv')
 
-# Dictionary untuk menyimpan hasil evaluasi
-results = {}
+# Membagi data menjadi fitur dan label
+X = data_df.drop('diabetes', axis=1)
+y = data_df['diabetes']
 
-# Iterasi setiap model
-for name, model in models.items():
-    # Latih model
-    model.fit(X_train, y_train)
+# Mengkodekan variabel kategorikal
+X = pd.get_dummies(X, drop_first=True)
 
-    # Prediksi pada data uji
-    y_pred = model.predict(X_test)
+# Membagi data menjadi set pelatihan dan pengujian
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    # Evaluasi
-    mse = mean_squared_error(y_test, y_pred)
-    rmse = np.sqrt(mse)
-    mape = mean_absolute_percentage_error(y_test, y_pred) * 100  # Dalam persen
+# Membuat dan melatih model Random Forest
+model = RandomForestClassifier(
+    random_state=42,
+    min_samples_split=5,    # Mencegah overfit
+    min_samples_leaf=3      # Meningkatkan generalisasi
+)
+model.fit(X_train, y_train)
 
-    # Simpan hasil evaluasi
-    results[name] = {"RMSE": rmse, "MAPE": mape}
+# Menambahkan satu data baru untuk pengujian
+data_baru = pd.DataFrame({
+    'gender': ['Female'],
+    'age': [50],
+    'hypertension': [0],
+    'heart_disease': [0],
+    'smoking_history': ['never'],
+    'bmi': [26.5],
+    'HbA1c_level': [10],
+    'blood_glucose_level': [200]
+})
 
-    # Kembalikan hasil prediksi ke skala asli
-    y_pred_original = scaler_target.inverse_transform(y_pred.reshape(-1, 1))
-    y_test_original = scaler_target.inverse_transform(y_test.values.reshape(-1, 1))
+# Mengkodekan variabel kategorikal pada data baru
+data_baru_encoded = pd.get_dummies(data_baru, drop_first=True)
 
-    # Plot hasil prediksi
-    plt.figure(figsize=(15, 6))
-    plt.plot(y_test.index, y_test_original, label="Actual", color="blue")
-    plt.plot(y_test.index, y_pred_original, label=f"Predicted ({name})", color="red")
+# Memastikan data baru memiliki kolom yang sama dengan X_train
+for column in X.columns:
+    if column not in data_baru_encoded.columns:
+        data_baru_encoded[column] = 0
 
-    # Tambahkan detail plot
-    plt.title(f'Actual vs Predicted Values ({name})')
-    plt.xlabel('Tanggal')
-    plt.ylabel('Kurs')
-    plt.legend()
-    plt.grid(True)
+data_baru_encoded = data_baru_encoded[X.columns]  # Menyusun ulang kolom sesuai dengan X
 
-    # Tampilkan plot
-    plt.show()
+# Melakukan prediksi pada data pengujian
+y_pred = model.predict(X_test)
 
-# Tampilkan hasil evaluasi
-print("HASIL EVALUASI MODEL")
-best_model = None
-best_rmse = float('inf')
-best_mape = float('inf')
+# Melakukan prediksi probabilitas pada data baru
+y_pred_proba = model.predict_proba(data_baru_encoded)
 
-for model, metrics in results.items():
-    print(f"{model}:\n  RMSE: {metrics['RMSE']:.2f}\n  MAPE: {metrics['MAPE']:.2f}%\n")
+# Menggunakan ambang batas probabilitas 0.7 untuk memutuskan prediksi
+threshold = 0.7
+y_pred_baru = (y_pred_proba[:, 1] >= threshold).astype(int)
 
-    # Tentukan model terbaik berdasarkan RMSE dan MAPE terkecil
-    if metrics['RMSE'] < best_rmse and metrics['MAPE'] < best_mape:
-        best_model = model
-        best_rmse = metrics['RMSE']
-        best_mape = metrics['MAPE']
+# Menghitung akurasi
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Akurasi: {accuracy:.2f}')
 
-# Tampilkan model terbaik
-print(f"MODEL TERBAIK:\nModel: {best_model}\nRMSE Terbaik: {best_rmse:.2f}\nMAPE Terbaik: {best_mape:.2f}%")
+# Menampilkan confusion matrix
+conf_matrix = confusion_matrix(y_test, y_pred)
+print('Confusion Matrix:')
+print(conf_matrix)
 
+# Menampilkan hasil prediksi untuk data baru
+print(f'Prediksi untuk data baru: {y_pred_baru[0]} (Probabilitas: {y_pred_proba[0]})')
+print(f'Dengan threshold {threshold}, hasil prediksi adalah: {y_pred_baru[0]}')
 
-#### Kesimpulan
+# Menampilkan confusion matrix dalam bentuk grafik
+disp = ConfusionMatrixDisplay(confusion_matrix=conf_matrix, display_labels=model.classes_)
+disp.plot(cmap=plt.cm.Blues)
+plt.title('Confusion Matrix')
+plt.show()
+```
 
-<p style="text-indent: 50px; text-align: justify;">
-Berdasarkan hasil evaluasi, model Linear Regression menunjukkan performa terbaik dengan RMSE sebesar 0.02 dan MAPE sebesar 2.13%. Ini menunjukkan bahwa prediksi model sangat mendekati nilai aktual dengan tingkat kesalahan yang rendah. Model lain seperti Ridge Regression, Random Forest, dan KNN Regressor memiliki hasil yang cukup baik, dengan RMSE yang serupa, tetapi MAPE mereka sedikit lebih tinggi, menunjukkan bahwa meskipun hasil prediksinya akurat, tingkat kesalahannya lebih besar dibandingkan Linear Regression. Sebaliknya, model Support Vector Regression (SVR) memiliki performa yang lebih buruk dengan MAPE sebesar 7.20%, menunjukkan tingkat kesalahan yang lebih tinggi. Kesimpulannya, Linear Regression adalah pilihan terbaik untuk data ini, karena menghasilkan kesalahan yang paling rendah dan paling konsisten dibandingkan dengan model lainnya.</p>
-
-### DEPLOYMENT
-<b>Hasil deployment dapat dilihat melalui tautan berikut:</b>
+### Kesimpulan
+<p style="text-indent: 50px; text-align: justify;">kesimpulan metode random forest tersebut sudah baik karena menghasilkan mse yang kecil yaitu 0.048. fitur yg paling berpengaruh yaitu hba1c_level serta blood_glucose_level.</p>

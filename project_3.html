@@ -848,102 +848,85 @@ Volume    -0.317581 -0.285561 -0.340484 -0.310277  -0.295026  1.000000
 <h3>f. Testing data baru<a class="headerlink" href="#f-testing-data-baru" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pastikan dataset sudah dimuat sebelumnya dalam variabel data_df</span>
 
-<span class="c1"># Misalkan Anda memiliki DataFrame bernama data_df</span>
-<span class="c1"># Contoh DataFrame (dapat diganti dengan dataset Anda sendiri)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Close&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">106</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">112</span><span class="p">]</span>
-<span class="p">}</span>
-<span class="n">data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="c1"># Buat fitur lag berdasarkan kolom &#39;Close&#39; dan &#39;High&#39;</span>
+<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_Close_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_Close_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_Close_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
-<span class="c1"># Pilih kolom &quot;Close&quot; sebagai target prediksi dan buat salinan</span>
-<span class="n">data_df</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-
-<span class="c1"># Buat fitur lag (data sebelumnya)</span>
-<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_High_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_High_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_High_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="c1"># Hapus baris dengan nilai NaN akibat lagging</span>
 <span class="n">data_df</span> <span class="o">=</span> <span class="n">data_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 
 <span class="c1"># Pisahkan fitur (X) dan target (y)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[[</span><span class="s1">&#39;Lag_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Lag_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Lag_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[[</span><span class="s1">&#39;Lag_Close_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Lag_Close_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Lag_Close_3&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;Lag_High_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Lag_High_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Lag_High_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y_close</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Target untuk &#39;Close&#39;</span>
+<span class="n">y_high</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># Target untuk &#39;High&#39;</span>
 
 <span class="c1"># Normalisasi data</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 <span class="n">scaler_features</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">scaler_target</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">scaler_target_close</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">scaler_target_high</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 
 <span class="n">X_normalized</span> <span class="o">=</span> <span class="n">scaler_features</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">y_normalized</span> <span class="o">=</span> <span class="n">scaler_target</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">y_close_normalized</span> <span class="o">=</span> <span class="n">scaler_target_close</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y_close</span><span class="p">)</span>
+<span class="n">y_high_normalized</span> <span class="o">=</span> <span class="n">scaler_target_high</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y_high</span><span class="p">)</span>
 
 <span class="c1"># Bagi data menjadi data latih dan uji (80% latih, 20% uji)</span>
 <span class="n">train_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.8</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_normalized</span><span class="p">))</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X_normalized</span><span class="p">[:</span><span class="n">train_size</span><span class="p">],</span> <span class="n">X_normalized</span><span class="p">[</span><span class="n">train_size</span><span class="p">:]</span>
-<span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y_normalized</span><span class="p">[:</span><span class="n">train_size</span><span class="p">],</span> <span class="n">y_normalized</span><span class="p">[</span><span class="n">train_size</span><span class="p">:]</span>
+<span class="n">y_close_train</span><span class="p">,</span> <span class="n">y_close_test</span> <span class="o">=</span> <span class="n">y_close_normalized</span><span class="p">[:</span><span class="n">train_size</span><span class="p">],</span> <span class="n">y_close_normalized</span><span class="p">[</span><span class="n">train_size</span><span class="p">:]</span>
+<span class="n">y_high_train</span><span class="p">,</span> <span class="n">y_high_test</span> <span class="o">=</span> <span class="n">y_high_normalized</span><span class="p">[:</span><span class="n">train_size</span><span class="p">],</span> <span class="n">y_high_normalized</span><span class="p">[</span><span class="n">train_size</span><span class="p">:]</span>
 
-<span class="c1"># Inisialisasi model Random Forest Regressor</span>
-<span class="n">random_forest_model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">random_forest_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+<span class="c1"># Inisialisasi model Random Forest Regressor untuk masing-masing target</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="n">rf_model_close</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">rf_model_high</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
-<span class="c1"># Fungsi untuk memprediksi harga menggunakan Random Forest</span>
-<span class="k">def</span> <span class="nf">predict_stock_price</span><span class="p">(</span><span class="n">lag_data</span><span class="p">):</span>
+<span class="c1"># Melatih model</span>
+<span class="n">rf_model_close</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_close_train</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+<span class="n">rf_model_high</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_high_train</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+
+<span class="c1"># Fungsi untuk memprediksi harga Close dan High</span>
+<span class="k">def</span> <span class="nf">predict_stock_prices</span><span class="p">(</span><span class="n">lag_close</span><span class="p">,</span> <span class="n">lag_high</span><span class="p">):</span>
+    <span class="c1"># Gabungkan input lag menjadi array</span>
+    <span class="n">lag_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">lag_close</span> <span class="o">+</span> <span class="n">lag_high</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
     <span class="c1"># Normalisasi data input</span>
-    <span class="n">lag_data_normalized</span> <span class="o">=</span> <span class="n">scaler_features</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">lag_data</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">lag_data_normalized</span> <span class="o">=</span> <span class="n">scaler_features</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">lag_data</span><span class="p">)</span>
 
     <span class="c1"># Prediksi harga</span>
-    <span class="n">predicted_normalized</span> <span class="o">=</span> <span class="n">random_forest_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">lag_data_normalized</span><span class="p">)</span>
+    <span class="n">predicted_close_normalized</span> <span class="o">=</span> <span class="n">rf_model_close</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">lag_data_normalized</span><span class="p">)</span>
+    <span class="n">predicted_high_normalized</span> <span class="o">=</span> <span class="n">rf_model_high</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">lag_data_normalized</span><span class="p">)</span>
 
     <span class="c1"># Kembalikan prediksi ke skala asli</span>
-    <span class="n">predicted_original</span> <span class="o">=</span> <span class="n">scaler_target</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">predicted_normalized</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">predicted_close_original</span> <span class="o">=</span> <span class="n">scaler_target_close</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">predicted_close_normalized</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">predicted_high_original</span> <span class="o">=</span> <span class="n">scaler_target_high</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">predicted_high_normalized</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
-    <span class="k">return</span> <span class="n">predicted_original</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Mengembalikan nilai prediksi dalam bentuk skalar.</span>
+    <span class="k">return</span> <span class="n">predicted_close_original</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">predicted_high_original</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 
-<span class="c1"># Meminta input data dari pengguna</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Masukkan harga saham dari 3 hari sebelumnya:&quot;</span><span class="p">)</span>
-<span class="n">lag_1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 1 hari sebelumnya: &quot;</span><span class="p">))</span>
-<span class="n">lag_2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 2 hari sebelumnya: &quot;</span><span class="p">))</span>
-<span class="n">lag_3</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 3 hari sebelumnya: &quot;</span><span class="p">))</span>
+<span class="c1"># Contoh input data</span>
+<span class="n">lag_close</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4000.0</span><span class="p">,</span> <span class="mf">3970.0</span><span class="p">,</span> <span class="mf">3930.0</span><span class="p">]</span>  <span class="c1"># Close 1, 2, dan 3 hari sebelumnya</span>
+<span class="n">lag_high</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4040.0</span><span class="p">,</span> <span class="mf">4030.0</span><span class="p">,</span> <span class="mf">3970.0</span><span class="p">]</span>   <span class="c1"># High 1, 2, dan 3 hari sebelumnya</span>
 
-<span class="c1"># Data input untuk prediksi</span>
-<span class="n">user_input</span> <span class="o">=</span> <span class="p">[</span><span class="n">lag_1</span><span class="p">,</span> <span class="n">lag_2</span><span class="p">,</span> <span class="n">lag_3</span><span class="p">]</span>
+<span class="c1"># Prediksi harga</span>
+<span class="n">predicted_close</span><span class="p">,</span> <span class="n">predicted_high</span> <span class="o">=</span> <span class="n">predict_stock_prices</span><span class="p">(</span><span class="n">lag_close</span><span class="p">,</span> <span class="n">lag_high</span><span class="p">)</span>
 
-<span class="c1"># Prediksi harga saham untuk hari berikutnya</span>
-<span class="n">predicted_price</span> <span class="o">=</span> <span class="n">predict_stock_price</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prediksi harga saham untuk hari berikutnya adalah: </span><span class="si">{</span><span class="n">predicted_price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Tampilkan hasil prediksi</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prediksi harga &#39;Close&#39; untuk hari berikutnya adalah: </span><span class="si">{</span><span class="n">predicted_close</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prediksi harga &#39;High&#39; untuk hari berikutnya adalah: </span><span class="si">{</span><span class="n">predicted_high</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Masukkan harga saham dari 3 hari sebelumnya:
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">59</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="c1"># Meminta input data dari pengguna</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Masukkan harga saham dari 3 hari sebelumnya:&quot;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">59</span> <span class="n">lag_1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 1 hari sebelumnya: &quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="n">lag_2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 2 hari sebelumnya: &quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="n">lag_3</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 3 hari sebelumnya: &quot;</span><span class="p">))</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelbase.py:1181,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1179</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1181</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1183</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1184</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">   </span><span class="mi">1185</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1186</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1187</span> <span class="p">)</span>
-
-<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prediksi harga &#39;Close&#39; untuk hari berikutnya adalah: 3983.00
+Prediksi harga &#39;High&#39; untuk hari berikutnya adalah: 4022.40
 </pre></div>
 </div>
 </div>

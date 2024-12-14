@@ -270,74 +270,80 @@ plt.show()
 
 #### f. Testing data baru
 ```{code-cell} python
-import pandas as pd
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.preprocessing import StandardScaler
-import numpy as np
+# Pastikan dataset sudah dimuat sebelumnya dalam variabel data_df
 
-# Misalkan Anda memiliki DataFrame bernama data_df
-# Contoh DataFrame (dapat diganti dengan dataset Anda sendiri)
-data = {
-    "Close": [100, 102, 101, 103, 105, 106, 107, 108, 110, 112]
-}
-data_df = pd.DataFrame(data)
+# Buat fitur lag berdasarkan kolom 'Close' dan 'High'
+data_df['Lag_Close_1'] = data_df['Close'].shift(1)
+data_df['Lag_Close_2'] = data_df['Close'].shift(2)
+data_df['Lag_Close_3'] = data_df['Close'].shift(3)
 
-# Pilih kolom "Close" sebagai target prediksi dan buat salinan
-data_df = data_df[['Close']].copy()
-
-# Buat fitur lag (data sebelumnya)
-data_df['Lag_1'] = data_df['Close'].shift(1)
-data_df['Lag_2'] = data_df['Lag_1'].shift(1)
-data_df['Lag_3'] = data_df['Lag_2'].shift(1)
+data_df['Lag_High_1'] = data_df['High'].shift(1)
+data_df['Lag_High_2'] = data_df['High'].shift(2)
+data_df['Lag_High_3'] = data_df['High'].shift(3)
 
 # Hapus baris dengan nilai NaN akibat lagging
 data_df = data_df.dropna()
 
 # Pisahkan fitur (X) dan target (y)
-X = data_df[['Lag_1', 'Lag_2', 'Lag_3']].values
-y = data_df['Close'].values.reshape(-1, 1)
+X = data_df[['Lag_Close_1', 'Lag_Close_2', 'Lag_Close_3', 
+             'Lag_High_1', 'Lag_High_2', 'Lag_High_3']].values
+y_close = data_df['Close'].values.reshape(-1, 1)  # Target untuk 'Close'
+y_high = data_df['High'].values.reshape(-1, 1)   # Target untuk 'High'
 
 # Normalisasi data
+from sklearn.preprocessing import StandardScaler
 scaler_features = StandardScaler()
-scaler_target = StandardScaler()
+scaler_target_close = StandardScaler()
+scaler_target_high = StandardScaler()
 
 X_normalized = scaler_features.fit_transform(X)
-y_normalized = scaler_target.fit_transform(y)
+y_close_normalized = scaler_target_close.fit_transform(y_close)
+y_high_normalized = scaler_target_high.fit_transform(y_high)
 
 # Bagi data menjadi data latih dan uji (80% latih, 20% uji)
 train_size = int(0.8 * len(X_normalized))
 X_train, X_test = X_normalized[:train_size], X_normalized[train_size:]
-y_train, y_test = y_normalized[:train_size], y_normalized[train_size:]
+y_close_train, y_close_test = y_close_normalized[:train_size], y_close_normalized[train_size:]
+y_high_train, y_high_test = y_high_normalized[:train_size], y_high_normalized[train_size:]
 
-# Inisialisasi model Random Forest Regressor
-random_forest_model = RandomForestRegressor(n_estimators=100, random_state=42)
-random_forest_model.fit(X_train, y_train.ravel())
+# Inisialisasi model Random Forest Regressor untuk masing-masing target
+from sklearn.ensemble import RandomForestRegressor
+rf_model_close = RandomForestRegressor(n_estimators=100, random_state=42)
+rf_model_high = RandomForestRegressor(n_estimators=100, random_state=42)
 
-# Fungsi untuk memprediksi harga menggunakan Random Forest
-def predict_stock_price(lag_data):
+# Melatih model
+rf_model_close.fit(X_train, y_close_train.ravel())
+rf_model_high.fit(X_train, y_high_train.ravel())
+
+# Fungsi untuk memprediksi harga Close dan High
+def predict_stock_prices(lag_close, lag_high):
+    # Gabungkan input lag menjadi array
+    lag_data = np.array(lag_close + lag_high).reshape(1, -1)
+
     # Normalisasi data input
-    lag_data_normalized = scaler_features.transform(np.array(lag_data).reshape(1, -1))
+    lag_data_normalized = scaler_features.transform(lag_data)
 
     # Prediksi harga
-    predicted_normalized = random_forest_model.predict(lag_data_normalized)
+    predicted_close_normalized = rf_model_close.predict(lag_data_normalized)
+    predicted_high_normalized = rf_model_high.predict(lag_data_normalized)
 
     # Kembalikan prediksi ke skala asli
-    predicted_original = scaler_target.inverse_transform(predicted_normalized.reshape(-1, 1))
+    predicted_close_original = scaler_target_close.inverse_transform(predicted_close_normalized.reshape(-1, 1))
+    predicted_high_original = scaler_target_high.inverse_transform(predicted_high_normalized.reshape(-1, 1))
 
-    return predicted_original[0, 0]  # Mengembalikan nilai prediksi dalam bentuk skalar.
+    return predicted_close_original[0, 0], predicted_high_original[0, 0]
 
-# Meminta input data dari pengguna
-print("Masukkan harga saham dari 3 hari sebelumnya:")
-lag_1 = float(input("Harga 1 hari sebelumnya: "))
-lag_2 = float(input("Harga 2 hari sebelumnya: "))
-lag_3 = float(input("Harga 3 hari sebelumnya: "))
+# Contoh input data
+lag_close = [4000.0, 3970.0, 3930.0]  # Close 1, 2, dan 3 hari sebelumnya
+lag_high = [4040.0, 4030.0, 3970.0]   # High 1, 2, dan 3 hari sebelumnya
 
-# Data input untuk prediksi
-user_input = [lag_1, lag_2, lag_3]
+# Prediksi harga
+predicted_close, predicted_high = predict_stock_prices(lag_close, lag_high)
 
-# Prediksi harga saham untuk hari berikutnya
-predicted_price = predict_stock_price(user_input)
-print(f"Prediksi harga saham untuk hari berikutnya adalah: {predicted_price:.2f}")
+# Tampilkan hasil prediksi
+print(f"Prediksi harga 'Close' untuk hari berikutnya adalah: {predicted_close:.2f}")
+print(f"Prediksi harga 'High' untuk hari berikutnya adalah: {predicted_high:.2f}")
+
 ```
 
 #### Kesimpulan

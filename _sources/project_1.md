@@ -15,8 +15,6 @@ kernelspec:
 # Prediksi Penyakit Diabetes
 
 
-## Pendahuluan 
-
 ### Latar Belakang
 
 <p style="text-indent: 50px; text-align: justify;">Diabetes merupakan salah satu penyakit kronis yang terus berkembang dan dapat menyebabkan berbagai komplikasi serius jika tidak terdeteksi sejak dini. Dengan semakin meningkatnya jumlah penderita diabetes, prediksi risiko menjadi langkah krusial untuk mencegah perkembangan penyakit dan mengurangi beban biaya perawatan kesehatan jangka panjang. Pendekatan berbasis prediksi menggunakan faktor gaya hidup dan data klinis memungkinkan klinik kesehatan untuk memproyeksikan kemungkinan seorang pasien mengembangkan diabetes di masa depan. Dengan begitu, tindakan preventif dan intervensi medis yang lebih tepat dapat direncanakan. Sistem prediksi ini juga dapat meningkatkan efisiensi dalam pemanfaatan sumber daya klinik dan mempercepat pelayanan kesehatan preventif.</p>

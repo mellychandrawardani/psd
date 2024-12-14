@@ -37,10 +37,8 @@ kernelspec:
 </p>
 
 
-#### Sumber Data 
-<p style="text-indent: 50px; text-align: justify;">Dataset ini berasal dari Kaggle dan berisi informasi mengenai data diabetes dengan berbagai fitur yang relevan untuk analisis kesehatan. Data ini akan digunakan untuk membangun model prediksi risiko diabetes berdasarkan kolom-kolom yang tersedia.
-
-Dataset yang digunakan ini berasal dari file Excel dengan informasi berikut:
+### Sumber Data 
+<p style="text-indent: 50px; text-align: justify;">Dataset ini berasal dari Kaggle dan berisi informasi mengenai data diabetes dengan berbagai fitur yang relevan untuk analisis kesehatan. Data ini akan digunakan untuk membangun model prediksi risiko diabetes berdasarkan kolom-kolom yang tersedia.Dataset yang digunakan ini berasal dari file Excel dengan informasi berikut:
 gender: Tipe object (menunjukkan jenis kelamin responden: pria atau wanita).
 age: Tipe int (usia responden dalam tahun).
 hypertension: Tipe int (indikator apakah responden memiliki hipertensi: 0 untuk tidak, 1 untuk ya).
@@ -52,7 +50,7 @@ blood_glucose_level: Tipe float64 (level glukosa darah dalam mg/dL).
 diabetes: Tipe int (indikator apakah responden menderita diabetes: 0 untuk tidak, 1 untuk ya).
 Data ini memberikan gambaran komprehensif mengenai faktor-faktor yang dapat mempengaruhi risiko diabetes pada individu.</p>
 
-#### a. data preparation
+#### a. Data Preparation
 ```{code-cell} python
 # Data Processing
 import pandas as pd
@@ -70,11 +68,10 @@ from sklearn.tree import plot_tree
 import matplotlib.pyplot as plt
 import seaborn as sns
 ```
-#### b. data wrangling
+#### b. Data Wrangling
 ```{code-cell} python
-# Membaca data
 data_df = pd.DataFrame(pd.read_excel("https://raw.githubusercontent.com/mellychandrawardani/mellychandrawardani/main/data_diabetes.xlsx"))
-data_df.head()
+print(data_df.head())
 ```
 
 <p style="text-indent: 50px; text-align: justify;"> 
@@ -94,7 +91,7 @@ print(f"Jumlah Kelas : {len(data_df[kelas].unique())} {data_df[kelas].unique()}"
 df.head()
 ```
 
-#### c. exploratory data anaysis
+#### c. Exploratory Data Anaysis
 cek tipe dataset, cek missing value, cek duplikat data
 ```{code-cell} python
 # Mengecek tipe dataset
@@ -117,7 +114,7 @@ data_df.duplicated().sum()
 Jumlah Missing Value per Kolom: Semua kolom memiliki 0 missing value, artinya tidak ada data yang hilang dalam setiap atribut.
 Persentase Missing Value per Kolom: Semua kolom juga menunjukkan persentase 0.0%, yang berarti tidak ada nilai yang hilang dari keseluruhan dataset. Dengan tidak adanya missing value, analisis dan pemodelan dapat dilakukan tanpa harus menangani data yang hilang, sehingga meningkatkan kualitas dan akurasi hasil analisis.</p>
 
-#### d. Preprocessing data
+#### d. Preprocessing Data
 
 <p style="text-indent: 50px; text-align: justify;">label encoding : Encoding digunakan untuk mengubah data kategorikal menjadi format numerik, sehingga dapat digunakan dalam analisis dan algoritma pembelajaran mesin.</p>
 
@@ -135,7 +132,7 @@ data_df = data_df.apply(lambda x: le.fit_transform(x))
 data_df
 ```
 
-##### Korelasi antar fitur
+##### Korelasi Antar Fitur
 <p style="text-indent: 50px; text-align: justify;"> Korelasi antar fitur digunakan untuk memahami hubungan antara variabel dalam dataset</p>
 
 ```{code-cell} python
@@ -259,7 +256,7 @@ plt.show()
 
 <p style="text-indent: 50px; text-align: justify;">Dari hasil fitur penting, fitur yang paling berpengaruh terhadap diabetes adalah HbA1c_level dengan nilai 0.400882, menunjukkan kontribusi signifikan dalam memprediksi risiko diabetes. Diikuti oleh blood_glucose_level yang memiliki nilai 0.273806, menandakan bahwa kadar glukosa darah juga berperan besar. Selanjutnya, age dengan nilai 0.131057 menunjukkan bahwa usia merupakan faktor penting, sementara fitur lainnya seperti BMI dan riwayat merokok memiliki pengaruh yang lebih kecil. Ini menunjukkan bahwa kontrol gula darah dan kesehatan metabolik adalah indikator utama risiko diabetes.</p>
 
-### g. Testing data baru
+### g. Testing Data Baru
 ```{code-cell} python
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier

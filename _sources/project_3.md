@@ -93,7 +93,7 @@ data_df.dtypes  # Menampilkan tipe data dari setiap kolom dalam DataFrame.
 # Mencari Missing Value
 data_df.isnull().sum()
 ```
-##### Akorelasi antar fitur
+##### korelasi antar fitur
 ```{code-cell} python
 import seaborn as sns
 # Menghitung korelasi antar fitur untuk subset yang diinginkan
@@ -275,11 +275,17 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 
+# Misalkan Anda memiliki DataFrame bernama data_df
+# Contoh DataFrame (dapat diganti dengan dataset Anda sendiri)
+data = {
+    "Close": [100, 102, 101, 103, 105, 106, 107, 108, 110, 112]
+}
+data_df = pd.DataFrame(data)
 
-# Pilih kolom yang relevan (misalnya kolom "Close" sebagai target prediksi)
-data_df = data_df[['Close']]
+# Pilih kolom "Close" sebagai target prediksi dan buat salinan
+data_df = data_df[['Close']].copy()
 
-# Buat fitur lag (data_df sebelumnya)
+# Buat fitur lag (data sebelumnya)
 data_df['Lag_1'] = data_df['Close'].shift(1)
 data_df['Lag_2'] = data_df['Lag_1'].shift(1)
 data_df['Lag_3'] = data_df['Lag_2'].shift(1)
@@ -291,14 +297,14 @@ data_df = data_df.dropna()
 X = data_df[['Lag_1', 'Lag_2', 'Lag_3']].values
 y = data_df['Close'].values.reshape(-1, 1)
 
-# Normalisasi data_df
+# Normalisasi data
 scaler_features = StandardScaler()
 scaler_target = StandardScaler()
 
 X_normalized = scaler_features.fit_transform(X)
 y_normalized = scaler_target.fit_transform(y)
 
-# Bagi data_df menjadi data_df latih dan uji (80% latih, 20% uji)
+# Bagi data menjadi data latih dan uji (80% latih, 20% uji)
 train_size = int(0.8 * len(X_normalized))
 X_train, X_test = X_normalized[:train_size], X_normalized[train_size:]
 y_train, y_test = y_normalized[:train_size], y_normalized[train_size:]
@@ -309,7 +315,7 @@ random_forest_model.fit(X_train, y_train.ravel())
 
 # Fungsi untuk memprediksi harga menggunakan Random Forest
 def predict_stock_price(lag_data):
-    # Normalisasi data_df input
+    # Normalisasi data input
     lag_data_normalized = scaler_features.transform(np.array(lag_data).reshape(1, -1))
 
     # Prediksi harga
@@ -320,7 +326,7 @@ def predict_stock_price(lag_data):
 
     return predicted_original[0, 0]  # Mengembalikan nilai prediksi dalam bentuk skalar.
 
-# Meminta input data_df dari pengguna
+# Meminta input data dari pengguna
 print("Masukkan harga saham dari 3 hari sebelumnya:")
 lag_1 = float(input("Harga 1 hari sebelumnya: "))
 lag_2 = float(input("Harga 2 hari sebelumnya: "))
@@ -332,7 +338,6 @@ user_input = [lag_1, lag_2, lag_3]
 # Prediksi harga saham untuk hari berikutnya
 predicted_price = predict_stock_price(user_input)
 print(f"Prediksi harga saham untuk hari berikutnya adalah: {predicted_price:.2f}")
-
 ```
 
 #### Kesimpulan

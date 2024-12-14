@@ -23,11 +23,17 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 
+# Misalkan Anda memiliki DataFrame bernama data_df
+# Contoh DataFrame (dapat diganti dengan dataset Anda sendiri)
+data = {
+    "Close": [100, 102, 101, 103, 105, 106, 107, 108, 110, 112]
+}
+data_df = pd.DataFrame(data)
 
-# Pilih kolom yang relevan (misalnya kolom "Close" sebagai target prediksi)
-data_df = data_df[['Close']]
+# Pilih kolom "Close" sebagai target prediksi dan buat salinan
+data_df = data_df[['Close']].copy()
 
-# Buat fitur lag (data_df sebelumnya)
+# Buat fitur lag (data sebelumnya)
 data_df['Lag_1'] = data_df['Close'].shift(1)
 data_df['Lag_2'] = data_df['Lag_1'].shift(1)
 data_df['Lag_3'] = data_df['Lag_2'].shift(1)
@@ -39,14 +45,14 @@ data_df = data_df.dropna()
 X = data_df[['Lag_1', 'Lag_2', 'Lag_3']].values
 y = data_df['Close'].values.reshape(-1, 1)
 
-# Normalisasi data_df
+# Normalisasi data
 scaler_features = StandardScaler()
 scaler_target = StandardScaler()
 
 X_normalized = scaler_features.fit_transform(X)
 y_normalized = scaler_target.fit_transform(y)
 
-# Bagi data_df menjadi data_df latih dan uji (80% latih, 20% uji)
+# Bagi data menjadi data latih dan uji (80% latih, 20% uji)
 train_size = int(0.8 * len(X_normalized))
 X_train, X_test = X_normalized[:train_size], X_normalized[train_size:]
 y_train, y_test = y_normalized[:train_size], y_normalized[train_size:]
@@ -57,7 +63,7 @@ random_forest_model.fit(X_train, y_train.ravel())
 
 # Fungsi untuk memprediksi harga menggunakan Random Forest
 def predict_stock_price(lag_data):
-    # Normalisasi data_df input
+    # Normalisasi data input
     lag_data_normalized = scaler_features.transform(np.array(lag_data).reshape(1, -1))
 
     # Prediksi harga
@@ -68,7 +74,7 @@ def predict_stock_price(lag_data):
 
     return predicted_original[0, 0]  # Mengembalikan nilai prediksi dalam bentuk skalar.
 
-# Meminta input data_df dari pengguna
+# Meminta input data dari pengguna
 print("Masukkan harga saham dari 3 hari sebelumnya:")
 lag_1 = float(input("Harga 1 hari sebelumnya: "))
 lag_2 = float(input("Harga 2 hari sebelumnya: "))
@@ -80,17 +86,16 @@ user_input = [lag_1, lag_2, lag_3]
 # Prediksi harga saham untuk hari berikutnya
 predicted_price = predict_stock_price(user_input)
 print(f"Prediksi harga saham untuk hari berikutnya adalah: {predicted_price:.2f}")
-
 ------------------
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
-Cell [1;32mIn[12], line 53[0m
-[0;32m     51[0m [38;5;66;03m# Meminta input data_df dari pengguna[39;00m
-[0;32m     52[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mMasukkan harga saham dari 3 hari sebelumnya:[39m[38;5;124m"[39m)
-[1;32m---> 53[0m lag_1 [38;5;241m=[39m [38;5;28mfloat[39m([38;5;28;43minput[39;49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mHarga 1 hari sebelumnya: [39;49m[38;5;124;43m"[39;49m[43m)[49m)
-[0;32m     54[0m lag_2 [38;5;241m=[39m [38;5;28mfloat[39m([38;5;28minput[39m([38;5;124m"[39m[38;5;124mHarga 2 hari sebelumnya: [39m[38;5;124m"[39m))
-[0;32m     55[0m lag_3 [38;5;241m=[39m [38;5;28mfloat[39m([38;5;28minput[39m([38;5;124m"[39m[38;5;124mHarga 3 hari sebelumnya: [39m[38;5;124m"[39m))
+Cell [1;32mIn[12], line 59[0m
+[0;32m     57[0m [38;5;66;03m# Meminta input data dari pengguna[39;00m
+[0;32m     58[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mMasukkan harga saham dari 3 hari sebelumnya:[39m[38;5;124m"[39m)
+[1;32m---> 59[0m lag_1 [38;5;241m=[39m [38;5;28mfloat[39m([38;5;28;43minput[39;49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mHarga 1 hari sebelumnya: [39;49m[38;5;124;43m"[39;49m[43m)[49m)
+[0;32m     60[0m lag_2 [38;5;241m=[39m [38;5;28mfloat[39m([38;5;28minput[39m([38;5;124m"[39m[38;5;124mHarga 2 hari sebelumnya: [39m[38;5;124m"[39m))
+[0;32m     61[0m lag_3 [38;5;241m=[39m [38;5;28mfloat[39m([38;5;28minput[39m([38;5;124m"[39m[38;5;124mHarga 3 hari sebelumnya: [39m[38;5;124m"[39m))
 
 File [1;32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelbase.py:1181[0m, in [0;36mKernel.raw_input[1;34m(self, prompt)[0m
 [0;32m   1179[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39m_allow_stdin:

@@ -363,32 +363,21 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.tree import DecisionTreeRegressor
-from sklearn.preprocessing import MinMaxScaler
 
-# Misalnya df adalah DataFrame yang sudah ada dan berisi data
-# Normalisasi fitur dan target menggunakan MinMaxScaler
-scaler_features = MinMaxScaler()
-scaler_target = MinMaxScaler()
+# Memisahkan data fitur dan target
+target_column = 'Index'  # Sesuaikan dengan nama kolom target Anda
+X = df.drop(columns=target_column, errors='ignore')
+y = df[target_column]
 
-# Normalisasi fitur (Harga Telur-4, Harga Telur-3, Harga Telur-2, Harga Telur-1)
-df_features_normalized = pd.DataFrame(scaler_features.fit_transform(df[['Harga Telur-4', 'Harga Telur-3', 'Harga Telur-2', 'Harga Telur-1']]),
-                                      columns=['Harga Telur-4', 'Harga Telur-3', 'Harga Telur-2', 'Harga Telur-1'],
-                                      index=df.index)
+# Menghapus kolom bertipe datetime jika ada
+X = X.select_dtypes(exclude=['datetime64'])
 
-# Normalisasi target (Harga Telur)
-df_target_normalized = pd.DataFrame(scaler_target.fit_transform(df[['Harga Telur']]),
-                                    columns=['Harga Telur'],
-                                    index=df.index)
-
-# Gabungkan kembali dataframe yang sudah dinormalisasi
-df_normalized = pd.concat([df_features_normalized, df_target_normalized], axis=1)
-
-# Memisahkan data fitur dan target setelah normalisasi
-X_normalized = df_normalized[['Harga Telur-4', 'Harga Telur-3', 'Harga Telur-2', 'Harga Telur-1']]
-y_normalized = df_normalized['Harga Telur']
+# Alternatif: Mengonversi kolom datetime ke format numerik (opsional)
+if 'Tanggal' in df.columns:
+    X['Tanggal'] = (df['Tanggal'] - df['Tanggal'].min()).dt.days
 
 # Membagi data menjadi set pelatihan dan pengujian
-X_train, X_test, y_train, y_test = train_test_split(X_normalized, y_normalized, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Inisialisasi model Decision Tree Regressor
 dt_model = DecisionTreeRegressor(random_state=42)
@@ -405,14 +394,6 @@ rmse = np.sqrt(mse)
 
 print("Mean Squared Error (MSE) dari Decision Tree Regressor:", mse)
 print("Root Mean Squared Error (RMSE) dari Decision Tree Regressor:", rmse)
-
-# Mengembalikan prediksi ke skala asli (bukan yang telah dinormalisasi)
-y_pred_original = scaler_target.inverse_transform(y_pred.reshape(-1, 1))
-
-# Menampilkan hasil prediksi dalam skala asli
-print(f"Prediksi Harga Telur (dalam skala asli): {y_pred_original.flatten()}")
-
-
 ```
 
 ### Kesimpulan

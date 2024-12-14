@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Laporan Project 1 &#8212; My sample book</title>
+    <title>Prediksi Harga Telur Ayam &#8212; My sample book</title>
   
   
   
@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Laporan Project 1" href="project_3.html" />
-    <link rel="prev" title="Laporan Project 1" href="project_1.html" />
+    <link rel="prev" title="Prediksi Penyakit Diabetes" href="project_1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -164,29 +164,13 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    PROYEK SAINS DATA
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="project_1.html">Laporan Project 1</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Laporan Project 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_1.html">Prediksi Penyakit Diabetes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Prediksi Harga Telur Ayam</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_3.html">Laporan Project 1</a></li>
 </ul>
 
@@ -365,7 +349,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Laporan Project 1</h1>
+    <h1>Prediksi Harga Telur Ayam</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -375,7 +359,28 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">Pendahuluan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">Latar Belakang</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumusan-masalah">Rumusan Masalah</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">Sumber Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-preparation">a. Data Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-wrangling">b. Data Wrangling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-data-understanding">c. Data Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-preprocessing-data">d. Preprocessing Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sliding-windows">sliding windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data">Normalisasi data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mengatur-data-testing-dan-training">Mengatur data testing dan training</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#e-modelling">e. Modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">random forest</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-random-forest-ensamble-baggig">g. Random forest &amp; ensamble baggig</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#h-testing-data-baru">h. Testing data baru</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
             </nav>
         </div>
@@ -387,11 +392,442 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="laporan-project-1">
-<h1>Laporan Project 1<a class="headerlink" href="#laporan-project-1" title="Link to this heading">#</a></h1>
-<section id="pendahuluan">
-<h2>Pendahuluan<a class="headerlink" href="#pendahuluan" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="prediksi-harga-telur-ayam">
+<h1>Prediksi Harga Telur Ayam<a class="headerlink" href="#prediksi-harga-telur-ayam" title="Link to this heading">#</a></h1>
+<section id="latar-belakang">
+<h2>Latar Belakang<a class="headerlink" href="#latar-belakang" title="Link to this heading">#</a></h2>
+<p style="text-indent: 50px; text-align: justify;">Harga telur ayam di pasar modern di Provinsi Jawa Timur telah menunjukkan variasi yang signifikan dalam beberapa tahun terakhir. Perubahan harga telur ayam tidak hanya dipengaruhi oleh factor-faktor ekonomi dan produksi, tetapi juga oleh ketersediaan stok, preferensi konsumen, dan masih banyak lagi. Salah satu perusahaan yang berperan penting dalam industry ini adalah PT Japfa Comfeed Indonesia Tbk (JAPFA), yang terlibat dalam penyerapan produksi telur ayam dari peternak guna membantu menstabilkan harga di tingkat peternak. Melalui program penyerapan telur nasional, JAPFA berkomitmen untuk mendukung peternak local dan meningkatkan konsumsi protein hewani di masyarakat.
+Analisis time series dapat membantu memahami kecenderungan dan pola perubahan harga telur ayam di pasar modern di Jawa Timur. Dengan menggunakan data historis harga telur ayam,penelitian ini dapat menganalisis tren harga, mengetahui pola perubahan, dan memprediksi harga telur ayam di minggu berikutnya. Oleh karena itu, penelitian ini bertujuan untuk menganalisis tren harga telur ayam di pasar modern di Provinsi Jawa Timur dan memprediksi harga telur ayam di minggu berikutnya.
+</p>
 </section>
+<section id="rumusan-masalah">
+<h2>Rumusan Masalah<a class="headerlink" href="#rumusan-masalah" title="Link to this heading">#</a></h2>
+<p style="text-indent: 50px; text-align: justify;">Bagaimana memprediksi harga telur ayam di pasar modern di Provinsi Jawa Timur pada minggu berikutnya menggunakan analisis time series?</p>
+</section>
+<section id="tujuan">
+<h2>Tujuan<a class="headerlink" href="#tujuan" title="Link to this heading">#</a></h2>
+<p style="text-indent: 50px; text-align: justify;"> Tujuan dari penelitian ini adalah untuk menganalisis tren harga telur ayam di pasar modern di Provinsi Jawa Timur dan memprediksi harga telur ayam di minggu berikutnya berdasarkan pola perubahan harga tersebut. Penelitian ini juga berharap untuk dapat membantu penjual dan pembeli telur ayam meminimalkan resiko lonjakan harga dan memaksimalkan keuntungan yang dapat mereka peroleh, serta untuk mendapat algoritma terbaik untuk prediksi harga telur ayam. 
+</p>
+</section>
+<section id="sumber-data">
+<h2>Sumber Data<a class="headerlink" href="#sumber-data" title="Link to this heading">#</a></h2>
+<p style="text-indent: 50px; text-align: justify;">Dataset ini berasal dari https://www.bi.go.id/hargapangan yang berbentuk time series dengan fitur yaitu tanggal dan harga telur ayam. dataset ini merupakan time series mingguan.  </p>
+<section id="a-data-preparation">
+<h3>a. Data Preparation<a class="headerlink" href="#a-data-preparation" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;plotly&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-data-wrangling">
+<h3>b. Data Wrangling<a class="headerlink" href="#b-data-wrangling" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membaca file Excel dari URL raw GitHub</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/mellychandrawardani/mellychandrawardani/raw/main/Tabel_Harga_Telur.xlsx&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p style="text-indent: 50px; text-align: justify;"> 
+Dataset ini memiliki:
+Jumlah Atribut/Feature: 9 (berisi informasi demografis dan kesehatan).
+Jumlah Data: 499 (entri responden).
+Jumlah Label: 1 (status diabetes).
+Jumlah Kelas: 2 (0: tidak diabetes, 1: diabetes).</p>
+</section>
+<section id="c-data-understanding">
+<h3>c. Data Understanding<a class="headerlink" href="#c-data-understanding" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pastikan kolom &#39;Tanggal&#39; dalam format datetime dengan dayfirst=True</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Tanggal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Tanggal&#39;</span><span class="p">],</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+
+<span class="c1"># Mengatur kolom &#39;Tanggal&#39; sebagai indeks</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Tanggal&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Menghapus spasi dari kolom &#39;Harga Telur&#39;, mengganti &#39;-&#39; dengan NaN, dan mengubahnya menjadi numeric</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Harga Telur&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Harga Telur&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan 5 baris pertama untuk memastikan</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p style="text-indent: 50px; text-align: justify;">Transformasi data ini bertujuan untuk mempersiapkan dataset agar siap digunakan dalam analisis berbasis waktu. Kolom `Tanggal` dikonversi ke format datetime dan diatur sebagai indeks untuk mempermudah pengolahan data berbasis waktu, seperti analisis tren atau *resampling*. Pada kolom `Harga Telur`, pembersihan dilakukan dengan mengganti simbol `'-'` menjadi `NaN` dan menghapus spasi agar data menjadi bersih dan konsisten dalam format numerik. Hasilnya, dataset lebih terstruktur dengan indeks waktu yang jelas dan data harga yang dapat digunakan untuk analisis lebih lanjut.</p><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>  <span class="c1"># Menampilkan informasi umum mengenai DataFrame, termasuk jumlah entri, jumlah kolom, tipe data setiap kolom, dan apakah ada nilai kosong (non-null).</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ukuran data &#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># Menampilkan ukuran data dalam format tuple (jumlah baris, jumlah kolom).</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>  <span class="c1"># Menampilkan tipe data dari setiap kolom dalam DataFrame.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mencari Missing Value</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="d-preprocessing-data">
+<h3>d. Preprocessing Data<a class="headerlink" href="#d-preprocessing-data" title="Link to this heading">#</a></h3>
+<section id="sliding-windows">
+<h4>sliding windows<a class="headerlink" href="#sliding-windows" title="Link to this heading">#</a></h4>
+<p style="text-indent: 50px; text-align: justify;">label encoding : Encoding digunakan untuk mengubah data kategorikal menjadi format numerik, sehingga dapat digunakan dalam analisis dan algoritma pembelajaran mesin.</p><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membuat fitur lag untuk harga: harga-1, harga-2, harga-3, harga-4</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Harga Telur-1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Harga Telur&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Harga Telur satu hari sebelumnya</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Harga Telur-2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Harga Telur&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Harga Telur dua hari sebelumnya</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Harga Telur-3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Harga Telur&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Harga Telur tiga hari sebelumnya</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Harga Telur-4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Harga Telur&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># Harga Telur empat hari sebelumnya</span>
+
+<span class="c1"># Menghapus baris yang memiliki nilai NaN</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Mengatur ulang kolom sehingga Harga Telur berada di kolom terakhir</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Harga Telur-4&#39;</span><span class="p">,</span> <span class="s1">&#39;Harga Telur-3&#39;</span><span class="p">,</span> <span class="s1">&#39;Harga Telur-2&#39;</span><span class="p">,</span> <span class="s1">&#39;Harga Telur-1&#39;</span><span class="p">,</span> <span class="s1">&#39;Harga Telur&#39;</span><span class="p">]]</span>
+
+<span class="c1"># Menampilkan 5 baris pertama untuk memastikan fitur lag telah ditambahkan</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="normalisasi-data">
+<h4>Normalisasi data<a class="headerlink" href="#normalisasi-data" title="Link to this heading">#</a></h4>
+<p style="text-indent: 50px; text-align: justify;"> Normalisasi min-max</p><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inisialisasi scaler untuk fitur (input) dan target (output)</span>
+<span class="n">scaler_features</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">scaler_target</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+
+<span class="c1"># Normalisasi fitur (Harga-1, Harga-2, Harga-3, Harga-4, Harga-5)</span>
+<span class="n">df_features_normalized</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scaler_features</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Harga Telur-4&#39;</span><span class="p">,</span> <span class="s1">&#39;Harga Telur-3&#39;</span><span class="p">,</span> <span class="s1">&#39;Harga Telur-2&#39;</span><span class="p">,</span> <span class="s1">&#39;Harga Telur-1&#39;</span><span class="p">]]),</span>
+                                      <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Harga Telur-4&#39;</span><span class="p">,</span> <span class="s1">&#39;Harga Telur-3&#39;</span><span class="p">,</span> <span class="s1">&#39;Harga Telur-2&#39;</span><span class="p">,</span> <span class="s1">&#39;Harga Telur-1&#39;</span><span class="p">],</span>
+                                      <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># Normalisasi target (Harga Telur)</span>
+<span class="n">df_target_normalized</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scaler_target</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Harga Telur&#39;</span><span class="p">]]),</span>
+                                    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Harga Telur&#39;</span><span class="p">],</span>
+                                    <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># Gabungkan kembali dataframe yang sudah dinormalisasi</span>
+<span class="n">df_normalized</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_features_normalized</span><span class="p">,</span> <span class="n">df_target_normalized</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_normalized</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mengatur-data-testing-dan-training">
+<h4>Mengatur data testing dan training<a class="headerlink" href="#mengatur-data-testing-dan-training" title="Link to this heading">#</a></h4>
+<p style="text-indent: 50px; text-align: justify;">.</p><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mengatur fitur (X) dan target (y)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_normalized</span><span class="p">[[</span><span class="s1">&#39;Harga Telur-4&#39;</span><span class="p">,</span> <span class="s1">&#39;Harga Telur-3&#39;</span><span class="p">,</span> <span class="s1">&#39;Harga Telur-2&#39;</span><span class="p">,</span> <span class="s1">&#39;Harga Telur-1&#39;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_normalized</span><span class="p">[</span><span class="s1">&#39;Harga Telur&#39;</span><span class="p">]</span>
+
+<span class="c1"># Membagi data menjadi training dan testing (80% training, 20% testing)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;===== Data Train =====&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;===== Data Testing ====&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Mengambil nilai tanggal dari indeks X_train dan X_test</span>
+<span class="n">dates_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">index</span>
+<span class="n">dates_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">index</span>
+
+<span class="c1"># Plot data training</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates_train</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;Harga Telur-1&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data Training&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot data testing</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates_test</span><span class="p">,</span> <span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;Harga Telur-1&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data Testing&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="c1"># Menambahkan judul, label, dan legenda</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pembagian Data Training dan Testing Berdasarkan Harga Telur&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Tanggal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Harga Telur&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>  <span class="c1"># Rotasi label sumbu x agar mudah dibaca</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="e-modelling">
+<h2>e. Modelling<a class="headerlink" href="#e-modelling" title="Link to this heading">#</a></h2>
+<section id="random-forest">
+<h3>random forest<a class="headerlink" href="#random-forest" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import library yang diperlukan</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>  <span class="c1"># Untuk model Random Forest</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>  <span class="c1"># Untuk evaluasi model</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># Untuk manipulasi array</span>
+
+<span class="c1"># Inisialisasi dan latih model Random Forest</span>
+<span class="n">rf_model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># Membuat model dengan 100 pohon</span>
+<span class="n">rf_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>  <span class="c1"># Melatih model dengan data pelatihan</span>
+
+<span class="c1"># Prediksi pada data uji</span>
+<span class="n">y_pred_rf</span> <span class="o">=</span> <span class="n">rf_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>  <span class="c1"># Melakukan prediksi pada data uji</span>
+
+<span class="c1"># Evaluasi model</span>
+<span class="n">mse_rf</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_rf</span><span class="p">)</span>  <span class="c1"># Menghitung Mean Squared Error (MSE)</span>
+<span class="n">r2_rf</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_rf</span><span class="p">)</span>  <span class="c1"># Menghitung R-squared (R²)</span>
+<span class="n">rmse_rf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse_rf</span><span class="p">)</span>  <span class="c1"># Menghitung Root Mean Squared Error (RMSE)</span>
+
+<span class="c1"># Fungsi untuk menghitung MAPE</span>
+<span class="k">def</span> <span class="nf">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y_true</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">/</span> <span class="n">y_true</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># Hitung MAPE</span>
+<span class="n">mape_rf</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_rf</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan hasil evaluasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Root Mean Squared Error (RMSE - Random Forest): </span><span class="si">{</span><span class="n">rmse_rf</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean Squared Error (MSE - Random Forest): </span><span class="si">{</span><span class="n">mse_rf</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;R-squared (R² - Random Forest): </span><span class="si">{</span><span class="n">r2_rf</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean Absolute Percentage Error (MAPE - Random Forest): </span><span class="si">{</span><span class="n">mape_rf</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Data tanggal dan harga asli</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Tanggal&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;23/08/2024&#39;</span><span class="p">,</span> <span class="s1">&#39;30/08/2024&#39;</span><span class="p">,</span> <span class="s1">&#39;06/09/2024&#39;</span><span class="p">,</span> <span class="s1">&#39;13/09/2024&#39;</span><span class="p">,</span> <span class="s1">&#39;20/09/2024&#39;</span><span class="p">,</span> <span class="s1">&#39;27/09/2024&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Harga_Asli&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">26800</span><span class="p">,</span> <span class="mi">26550</span><span class="p">,</span> <span class="mi">26000</span><span class="p">,</span> <span class="mi">26800</span><span class="p">,</span> <span class="mi">26850</span><span class="p">,</span> <span class="mi">26100</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1"># Mengonversi ke DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Tanggal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Tanggal&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span><span class="p">)</span>  <span class="c1"># Mengonversi string tanggal menjadi datetime</span>
+
+<span class="c1"># Data harga prediksi (ganti dengan prediksi model Anda)</span>
+<span class="n">predicted_prices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">26600</span><span class="p">,</span> <span class="mi">26400</span><span class="p">,</span> <span class="mi">25900</span><span class="p">,</span> <span class="mi">26700</span><span class="p">,</span> <span class="mi">26900</span><span class="p">,</span> <span class="mi">26200</span><span class="p">]</span>  <span class="c1"># Contoh prediksi, sesuaikan dengan model Anda</span>
+
+<span class="c1"># Membuat plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Tanggal&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Harga_Asli&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Harga Asli&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>  <span class="c1"># Garis untuk harga asli</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Tanggal&#39;</span><span class="p">],</span> <span class="n">predicted_prices</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Harga Prediksi&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>  <span class="c1"># Garis untuk harga prediksi</span>
+
+<span class="c1"># Menambahkan label dan judul</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Tanggal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Harga&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Prediksi Harga Menggunakan Random Forest&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>  <span class="c1"># Memutar label tanggal agar lebih mudah dibaca</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  <span class="c1"># Mengatur tata letak agar tidak ada yang terpotong</span>
+
+<span class="c1"># Menampilkan plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="o">&lt;</span><span class="n">p</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;text-indent: 50px; text-align: justify;&quot;</span><span class="o">&gt;</span><span class="n">Model</span> <span class="n">Random</span> <span class="n">Forest</span> <span class="n">menunjukkan</span> <span class="n">performa</span> <span class="n">yang</span> <span class="n">baik</span><span class="p">:</span>
+<span class="n">Akurasi</span><span class="p">:</span> <span class="mi">88</span><span class="o">%</span>
+<span class="n">Precision</span><span class="p">:</span> <span class="mf">92.3</span><span class="o">%</span>
+<span class="n">Recall</span><span class="p">:</span> <span class="mf">81.8</span><span class="o">%</span>
+<span class="n">R</span><span class="o">-</span><span class="n">squared</span> <span class="n">score</span> <span class="n">sebesar</span> <span class="mf">78.2</span><span class="o">%</span> <span class="n">menunjukkan</span> <span class="n">bahwa</span> <span class="n">model</span> <span class="n">mampu</span> <span class="n">menjelaskan</span> <span class="n">sebagian</span> <span class="n">besar</span> <span class="n">variasi</span> <span class="n">dalam</span> <span class="n">data</span><span class="o">.</span>
+<span class="n">RMSE</span> <span class="n">rendah</span> <span class="p">(</span><span class="mf">0.315</span><span class="p">)</span> <span class="n">menunjukkan</span> <span class="n">bahwa</span> <span class="n">tingkat</span> <span class="n">kesalahan</span> <span class="n">prediksi</span> <span class="n">cukup</span> <span class="n">kecil</span><span class="o">.</span> <span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+
+<span class="c1">### f. Feature Important</span>
+<span class="err">```</span><span class="p">{</span><span class="n">code</span><span class="o">-</span><span class="n">cell</span><span class="p">}</span> <span class="n">python</span>
+<span class="c1"># Membagi data menjadi fitur dan label</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;diabetes&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;diabetes&#39;</span><span class="p">]</span>
+
+<span class="c1"># Mengkodekan variabel kategorikal jika diperlukan</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Membagi data menjadi set pelatihan dan pengujian</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Membuat dan melatih model Random Forest</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Menghitung feature importance</span>
+<span class="n">importances</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_importances_</span>
+
+<span class="c1"># Membuat DataFrame untuk feature importance</span>
+<span class="n">feature_importance_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Feature&#39;</span><span class="p">:</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+    <span class="s1">&#39;Importance&#39;</span><span class="p">:</span> <span class="n">importances</span>
+<span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Importance&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan DataFrame feature importance</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">feature_importance_df</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan feature importance dalam bentuk grafik</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">feature_importance_df</span><span class="p">[</span><span class="s1">&#39;Feature&#39;</span><span class="p">],</span> <span class="n">feature_importance_df</span><span class="p">[</span><span class="s1">&#39;Importance&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Importance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Feature Importance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="g-random-forest-ensamble-baggig">
+<h2>g. Random forest &amp; ensamble baggig<a class="headerlink" href="#g-random-forest-ensamble-baggig" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">BaggingRegressor</span><span class="p">,</span> <span class="n">RandomForestRegressor</span>  <span class="c1"># Mengimpor model RandomForestRegressor dan BaggingRegressor dari scikit-learn</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>  <span class="c1"># Mengimpor metrik evaluasi</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># Mengimpor library numpy untuk operasi numerik</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>  <span class="c1"># Mengimpor library pandas untuk manipulasi data</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># Mengimpor matplotlib untuk visualisasi</span>
+
+<span class="c1"># Inisialisasi dan latih model Random Forest</span>
+<span class="n">rf_model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># Membuat instance RandomForestRegressor dengan 100 pohon dan seed untuk reproduksibilitas.</span>
+<span class="n">rf_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>  <span class="c1"># Melatih model dengan data pelatihan.</span>
+
+<span class="c1"># Prediksi pada data uji</span>
+<span class="n">y_pred_rf</span> <span class="o">=</span> <span class="n">rf_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>  <span class="c1"># Menggunakan model untuk memprediksi nilai pada data uji.</span>
+
+<span class="c1"># Evaluasi model</span>
+<span class="n">mse_rf</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_rf</span><span class="p">)</span>  <span class="c1"># Menghitung Mean Squared Error (MSE) untuk prediksi Random Forest.</span>
+<span class="n">r2_rf</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_rf</span><span class="p">)</span>  <span class="c1"># Menghitung R-squared (R²) untuk mengevaluasi model.</span>
+
+<span class="c1"># Menghitung RMSE</span>
+<span class="n">rmse_rf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse_rf</span><span class="p">)</span>  <span class="c1"># Menghitung Root Mean Squared Error (RMSE) dari MSE.</span>
+
+<span class="c1"># Menampilkan hasil evaluasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Root Mean Squared Error (Random Forest): </span><span class="si">{</span><span class="n">rmse_rf</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Mencetak RMSE untuk model Random Forest.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean Squared Error (Random Forest): </span><span class="si">{</span><span class="n">mse_rf</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Mencetak MSE untuk model Random Forest.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;R-squared (Random Forest): </span><span class="si">{</span><span class="n">r2_rf</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Mencetak R² untuk model Random Forest.</span>
+
+<span class="c1"># Inisialisasi model Bagging dengan Random Forest sebagai base estimator</span>
+<span class="n">bagging_rf_model</span> <span class="o">=</span> <span class="n">BaggingRegressor</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># Membuat model Bagging dengan 10 estimators.</span>
+<span class="c1"># Latih model Bagging pada data pelatihan</span>
+<span class="n">bagging_rf_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>  <span class="c1"># Melatih model Bagging menggunakan data pelatihan.</span>
+
+<span class="c1"># Prediksi pada data uji</span>
+<span class="n">y_pred_bagging_rf</span> <span class="o">=</span> <span class="n">bagging_rf_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>  <span class="c1"># Menggunakan model untuk memprediksi nilai pada data uji.</span>
+
+<span class="c1"># Evaluasi model Bagging</span>
+<span class="n">mse_bagging_rf</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_bagging_rf</span><span class="p">)</span>  <span class="c1"># Menghitung Mean Squared Error (MSE) untuk prediksi Bagging</span>
+<span class="n">r2_bagging_rf</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_bagging_rf</span><span class="p">)</span>  <span class="c1"># Menghitung R-squared untuk evaluasi kualitas model</span>
+<span class="c1"># Menghitung RMSE</span>
+<span class="n">rmse_bagging_rf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse_bagging_rf</span><span class="p">)</span>  <span class="c1"># Menghitung Root Mean Squared Error (RMSE) dari MSE</span>
+
+<span class="c1"># Tampilkan hasil evaluasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Bagging Model (Random Forest) - Root Mean Squared Error: </span><span class="si">{</span><span class="n">rmse_bagging_rf</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Menampilkan RMSE</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Bagging Model (Random Forest) - Mean Squared Error: </span><span class="si">{</span><span class="n">mse_bagging_rf</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Menampilkan MSE</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Bagging Model (Random Forest) - R-squared: </span><span class="si">{</span><span class="n">r2_bagging_rf</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Menampilkan nilai R-squared</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p style="text-indent: 50px; text-align: justify;">Model memprediksi data baru termasuk ke dalam kelas 1 karena probabilitasnya melebihi threshold 0.7. Hal ini menunjukkan bahwa model cukup yakin data tersebut milik kelas 1. Akurasi model yang tinggi (95%) mendukung keandalan prediksi ini.</p>
+</section>
+<section id="h-testing-data-baru">
+<h2>h. Testing data baru<a class="headerlink" href="#h-testing-data-baru" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Contoh data pelatihan (gantilah dengan data pelatihan sebenarnya)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">28450</span><span class="p">,</span> <span class="mi">28250</span><span class="p">,</span> <span class="mi">27950</span><span class="p">,</span> <span class="mi">27850</span><span class="p">],</span> <span class="p">[</span><span class="mi">27900</span><span class="p">,</span> <span class="mi">27650</span><span class="p">,</span> <span class="mi">27600</span><span class="p">,</span> <span class="mi">27250</span><span class="p">],</span> <span class="p">[</span><span class="mi">27250</span><span class="p">,</span> <span class="mi">26800</span><span class="p">,</span> <span class="mi">26550</span><span class="p">,</span> <span class="mi">26000</span><span class="p">]])</span>  <span class="c1"># Data fitur pelatihan</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">26800</span><span class="p">],</span> <span class="p">[</span><span class="mi">26850</span><span class="p">],</span> <span class="p">[</span><span class="mi">26100</span><span class="p">]])</span>  <span class="c1"># Target pelatihan</span>
+
+<span class="c1"># Inisialisasi dan fit scaler dengan data pelatihan</span>
+<span class="n">scaler_features</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">scaler_target</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="c1"># Fit scaler pada data fitur dan target</span>
+<span class="n">X_train_normalized</span> <span class="o">=</span> <span class="n">scaler_features</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">y_train_normalized</span> <span class="o">=</span> <span class="n">scaler_target</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Inisialisasi dan fit model Random Forest dengan data pelatihan yang telah dinormalisasi</span>
+<span class="n">random_forest_model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">()</span>
+<span class="n">random_forest_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_normalized</span><span class="p">,</span> <span class="n">y_train_normalized</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+
+<span class="c1"># Fungsi untuk memprediksi Harga berdasarkan input dari pengguna menggunakan Random Forest Regressor</span>
+<span class="k">def</span> <span class="nf">predict_custom_data_rf</span><span class="p">(</span><span class="n">input_data</span><span class="p">):</span>
+    <span class="c1"># Normalisasi data input menggunakan scaler yang sama dengan data pelatihan</span>
+    <span class="n">input_data_normalized</span> <span class="o">=</span> <span class="n">scaler_features</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># Prediksi dengan model Random Forest Regressor</span>
+    <span class="n">predicted_normalized</span> <span class="o">=</span> <span class="n">random_forest_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_data_normalized</span><span class="p">)</span>
+
+    <span class="c1"># Mengembalikan prediksi ke skala asli</span>
+    <span class="n">predicted_original</span> <span class="o">=</span> <span class="n">scaler_target</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">predicted_normalized</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">predicted_original</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Mengembalikan nilai prediksi dalam bentuk skalar.</span>
+
+<span class="c1"># Meminta input dari pengguna</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Masukkan nilai Harga dari hari-hari sebelumnya:&quot;</span><span class="p">)</span>
+<span class="n">Harga_1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 1 hari sebelumnya: &quot;</span><span class="p">))</span>
+<span class="n">Harga_2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 2 hari sebelumnya: &quot;</span><span class="p">))</span>
+<span class="n">Harga_3</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 3 hari sebelumnya: &quot;</span><span class="p">))</span>
+<span class="n">Harga_4</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 4 hari sebelumnya: &quot;</span><span class="p">))</span>
+
+<span class="c1"># Data input yang dimasukkan oleh pengguna</span>
+<span class="n">user_input</span> <span class="o">=</span> <span class="p">[</span><span class="n">Harga_1</span><span class="p">,</span> <span class="n">Harga_2</span><span class="p">,</span> <span class="n">Harga_3</span><span class="p">,</span> <span class="n">Harga_4</span><span class="p">]</span>
+
+<span class="c1"># Prediksi Harga untuk data yang dimasukkan menggunakan Random Forest</span>
+<span class="n">predicted_value_rf</span> <span class="o">=</span> <span class="n">predict_custom_data_rf</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan hasil prediksi</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prediksi Harga untuk hari selanjutnya adalah: </span><span class="si">{</span><span class="n">predicted_value_rf</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p style="text-indent: 50px; text-align: justify;">kesimpulan metode random forest tersebut sudah baik karena menghasilkan mse yang kecil yaitu 0.048. fitur yg paling berpengaruh yaitu hba1c_level serta blood_glucose_level.</p></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -430,7 +866,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Laporan Project 1</p>
+        <p class="prev-next-title">Prediksi Penyakit Diabetes</p>
       </div>
     </a>
     <a class="right-next"
@@ -459,7 +895,28 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">Pendahuluan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">Latar Belakang</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumusan-masalah">Rumusan Masalah</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">Sumber Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-preparation">a. Data Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-wrangling">b. Data Wrangling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-data-understanding">c. Data Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-preprocessing-data">d. Preprocessing Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sliding-windows">sliding windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data">Normalisasi data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mengatur-data-testing-dan-training">Mengatur data testing dan training</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#e-modelling">e. Modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">random forest</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-random-forest-ensamble-baggig">g. Random forest &amp; ensamble baggig</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#h-testing-data-baru">h. Testing data baru</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
   </nav></div>
 

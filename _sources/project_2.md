@@ -249,7 +249,7 @@ Recall: 81.8%
 R-squared score sebesar 78.2% menunjukkan bahwa model mampu menjelaskan sebagian besar variasi dalam data.
 RMSE rendah (0.315) menunjukkan bahwa tingkat kesalahan prediksi cukup kecil. </p>
 
-### g. Random forest & ensamble baggig
+### g. Random forest & ensamble bagging
 ```{code-cell} python
 from sklearn.ensemble import BaggingRegressor, RandomForestRegressor  # Mengimpor model RandomForestRegressor dan BaggingRegressor dari scikit-learn
 from sklearn.metrics import mean_squared_error, r2_score  # Mengimpor metrik evaluasi
@@ -304,7 +304,11 @@ from sklearn.preprocessing import StandardScaler
 import numpy as np
 
 # Contoh data pelatihan (gantilah dengan data pelatihan sebenarnya)
-X_train = np.array([[28450, 28250, 27950, 27850], [27900, 27650, 27600, 27250], [27250, 26800, 26550, 26000]])  # Data fitur pelatihan
+X_train = np.array([
+    [28450, 28250, 27950, 27850], 
+    [27900, 27650, 27600, 27250], 
+    [27250, 26800, 26550, 26000]
+])  # Data fitur pelatihan
 y_train = np.array([[26800], [26850], [26100]])  # Target pelatihan
 
 # Inisialisasi dan fit scaler dengan data pelatihan
@@ -332,21 +336,25 @@ def predict_custom_data_rf(input_data):
 
     return predicted_original[0, 0]  # Mengembalikan nilai prediksi dalam bentuk skalar.
 
-# Meminta input dari pengguna
-print("Masukkan nilai Harga dari hari-hari sebelumnya:")
-Harga_1 = float(input("Harga 1 hari sebelumnya: "))
-Harga_2 = float(input("Harga 2 hari sebelumnya: "))
-Harga_3 = float(input("Harga 3 hari sebelumnya: "))
-Harga_4 = float(input("Harga 4 hari sebelumnya: "))
+# Data input dari pengguna
+Harga_1 = 26100
+Harga_2 = 26850
+Harga_3 = 26800
+Harga_4 = 26000
+print("Harga 1 hari sebelumnya:", Harga_1)
+print("Harga 2 hari sebelumnya:", Harga_2)
+print("Harga 3 hari sebelumnya:", Harga_3)
+print("Harga 4 hari sebelumnya:", Harga_4)
 
-# Data input yang dimasukkan oleh pengguna
-user_input = [Harga_1, Harga_2, Harga_3, Harga_4]
+# Menggabungkan input data menjadi list
+user_input = [Harga_4, Harga_3, Harga_2, Harga_1]
 
 # Prediksi Harga untuk data yang dimasukkan menggunakan Random Forest
 predicted_value_rf = predict_custom_data_rf(user_input)
 
 # Menampilkan hasil prediksi
 print(f"Prediksi Harga untuk hari selanjutnya adalah: {predicted_value_rf:.2f}")
+
 ```
 ### i. decision tree
 ```{code-cell} python

@@ -492,14 +492,14 @@ Jumlah Kelas: 2 (0: tidak diabetes, 1: diabetes).</p>
 <span class="c1"># Mengecek jumlah missing value di setiap kolom</span>
 <span class="n">missing_values</span> <span class="o">=</span> <span class="n">data_df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="c1"># Menampilkan hasil</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah missing value per kolom:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">missing_values</span><span class="p">)</span>
+<span class="p">(</span><span class="s2">&quot;Jumlah missing value per kolom:&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">missing_values</span><span class="p">)</span>
 <span class="c1"># Menampilkan persentase missing value</span>
 <span class="n">total_rows</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_df</span><span class="p">)</span>
 <span class="n">missing_percentage</span> <span class="o">=</span> <span class="p">(</span><span class="n">missing_values</span> <span class="o">/</span> <span class="n">total_rows</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Persentase missing value per kolom:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">missing_percentage</span><span class="p">)</span>
+<span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Persentase missing value per kolom:&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">missing_percentage</span><span class="p">)</span>
 <span class="c1">#duplikat data</span>
 <span class="n">data_df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
@@ -522,29 +522,6 @@ Data columns (total 9 columns):
  8   diabetes             499 non-null    int64  
 dtypes: float64(2), int64(5), object(2)
 memory usage: 35.2+ KB
-Jumlah missing value per kolom:
-gender                 0
-age                    0
-hypertension           0
-heart_disease          0
-smoking_history        0
-bmi                    0
-HbA1c_level            0
-blood_glucose_level    0
-diabetes               0
-dtype: int64
-
-Persentase missing value per kolom:
-gender                 0.0
-age                    0.0
-hypertension           0.0
-heart_disease          0.0
-smoking_history        0.0
-bmi                    0.0
-HbA1c_level            0.0
-blood_glucose_level    0.0
-diabetes               0.0
-dtype: float64
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
@@ -1066,9 +1043,9 @@ Recall: 0.45454545454545453
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/76f7d5731f27ce744bf10efb7c8e4da670ef0f011e104548061d5689a16b085a.png" src="_images/76f7d5731f27ce744bf10efb7c8e4da670ef0f011e104548061d5689a16b085a.png" />
-<img alt="_images/a322f6e761950fbfa486eebad7db06e2ad7d40267f938adcbeba3d77288283f8.png" src="_images/a322f6e761950fbfa486eebad7db06e2ad7d40267f938adcbeba3d77288283f8.png" />
-<img alt="_images/3acc3e0fb0d30ba62a0fb7ac5609b13516b003fd596763747f5bb7fe1e4661b7.png" src="_images/3acc3e0fb0d30ba62a0fb7ac5609b13516b003fd596763747f5bb7fe1e4661b7.png" />
+<img alt="_images/551f823f9646855b112e1e98866233a90bea3342101ceff757b30a3fbc50d2ce.png" src="_images/551f823f9646855b112e1e98866233a90bea3342101ceff757b30a3fbc50d2ce.png" />
+<img alt="_images/79bf5065fa926131d28485f3bc81e90de366cc6da86b400f6cf117ac20dfa34a.png" src="_images/79bf5065fa926131d28485f3bc81e90de366cc6da86b400f6cf117ac20dfa34a.png" />
+<img alt="_images/caa82b6e4d66fffe77ceb6a6dae44ed1885cc68bbfcacdf65831d8f380c582ab.png" src="_images/caa82b6e4d66fffe77ceb6a6dae44ed1885cc68bbfcacdf65831d8f380c582ab.png" />
 </div>
 </div>
 <p style="text-indent: 50px; text-align: justify;">Model Random Forest menunjukkan performa yang baik:

@@ -87,14 +87,14 @@ data_df.info()
 # Mengecek jumlah missing value di setiap kolom
 missing_values = data_df.isnull().sum()
 # Menampilkan hasil
-print("Jumlah missing value per kolom:")
-print(missing_values)
+("Jumlah missing value per kolom:")
+(missing_values)
 # Menampilkan persentase missing value
 total_rows = len(data_df)
 missing_percentage = (missing_values / total_rows) * 100
 
-print("\nPersentase missing value per kolom:")
-print(missing_percentage)
+("\nPersentase missing value per kolom:")
+(missing_percentage)
 #duplikat data
 data_df.duplicated().sum()
 ```

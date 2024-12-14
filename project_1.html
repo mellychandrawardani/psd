@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Laporan Project 1" href="project_2.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="intro.html" />
+    <link rel="prev" title="PROYEK SAINS DATA" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -164,7 +164,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    <no title>
+                    PROYEK SAINS DATA
                 </a>
             </li>
         </ul>
@@ -480,37 +480,7 @@ Dataset ini memiliki:
 Jumlah Atribut/Feature: 9 (berisi informasi demografis dan kesehatan).
 Jumlah Data: 499 (entri responden).
 Jumlah Label: 1 (status diabetes).
-Jumlah Kelas: 2 (0: tidak diabetes, 1: diabetes).</p><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kelas</span> <span class="o">=</span> <span class="s2">&quot;diabetes&quot;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah Atribut/Feature : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_df</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah Data : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_df</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah Label : 1 [</span><span class="si">{</span><span class="n">kelas</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah Kelas : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="n">kelas</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">data_df</span><span class="p">[</span><span class="n">kelas</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah Atribut/Feature : 9
-Jumlah Data : 499
-Jumlah Label : 1 [diabetes]
-Jumlah Kelas : 2 [0 1]
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah Label : 1 [</span><span class="si">{</span><span class="n">kelas</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah Kelas : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="n">kelas</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">data_df</span><span class="p">[</span><span class="n">kelas</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;df&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
+Jumlah Kelas: 2 (0: tidak diabetes, 1: diabetes).</p>
 </section>
 <section id="c-exploratory-data-anaysis">
 <h3>c. Exploratory Data Anaysis<a class="headerlink" href="#c-exploratory-data-anaysis" title="Link to this heading">#</a></h3>
@@ -535,6 +505,52 @@ Jumlah Kelas : 2 [0 1]
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 499 entries, 0 to 498
+Data columns (total 9 columns):
+ #   Column               Non-Null Count  Dtype  
+---  ------               --------------  -----  
+ 0   gender               499 non-null    object 
+ 1   age                  499 non-null    int64  
+ 2   hypertension         499 non-null    int64  
+ 3   heart_disease        499 non-null    int64  
+ 4   smoking_history      499 non-null    object 
+ 5   bmi                  499 non-null    float64
+ 6   HbA1c_level          499 non-null    float64
+ 7   blood_glucose_level  499 non-null    int64  
+ 8   diabetes             499 non-null    int64  
+dtypes: float64(2), int64(5), object(2)
+memory usage: 35.2+ KB
+Jumlah missing value per kolom:
+gender                 0
+age                    0
+hypertension           0
+heart_disease          0
+smoking_history        0
+bmi                    0
+HbA1c_level            0
+blood_glucose_level    0
+diabetes               0
+dtype: int64
+
+Persentase missing value per kolom:
+gender                 0.0
+age                    0.0
+hypertension           0.0
+heart_disease          0.0
+smoking_history        0.0
+bmi                    0.0
+HbA1c_level            0.0
+blood_glucose_level    0.0
+diabetes               0.0
+dtype: float64
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
 </div>
 <p style="text-indent: 50px; text-align: justify;">Hasil analisis missing value dalam dataset menunjukkan bahwa:
 Jumlah Missing Value per Kolom: Semua kolom memiliki 0 missing value, artinya tidak ada data yang hilang dalam setiap atribut.
@@ -554,6 +570,33 @@ Persentase Missing Value per Kolom: Semua kolom juga menunjukkan persentase 0.0%
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atribut diabetes 
+gender                                                    [Female, Male]
+age                    [80, 61, 28, 36, 76, 20, 44, 22, 63, 32, 53, 5...
+hypertension                                                      [0, 1]
+heart_disease                                                     [1, 0]
+smoking_history              [never, current, former, ever, not current]
+bmi                    [25.19, 30.11, 27.32, 23.45, 20.14, 19.31, 29....
+HbA1c_level            [6.6, 6.2, 5.7, 5.0, 4.8, 6.5, 6.0, 6.1, 5.8, ...
+blood_glucose_level    [140, 240, 158, 155, 85, 200, 80, 145, 100, 13...
+diabetes                                                          [0, 1]
+dtype: object
+
+Atribut diabetes Encode 
+gender                                                            [0, 1]
+age                    [76, 57, 24, 32, 72, 16, 40, 18, 59, 28, 49, 5...
+hypertension                                                      [0, 1]
+heart_disease                                                     [1, 0]
+smoking_history                                          [3, 0, 2, 1, 4]
+bmi                    [140, 252, 195, 93, 34, 24, 245, 233, 370, 319...
+HbA1c_level            [11, 9, 5, 4, 3, 10, 7, 8, 6, 2, 0, 1, 17, 13,...
+blood_glucose_level    [6, 14, 9, 8, 1, 12, 0, 7, 3, 5, 10, 2, 11, 4,...
+diabetes                                                          [0, 1]
+dtype: object
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -562,6 +605,173 @@ Persentase Missing Value per Kolom: Semua kolom juga menunjukkan persentase 0.0%
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gender</th>
+      <th>age</th>
+      <th>hypertension</th>
+      <th>heart_disease</th>
+      <th>smoking_history</th>
+      <th>bmi</th>
+      <th>HbA1c_level</th>
+      <th>blood_glucose_level</th>
+      <th>diabetes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>76</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3</td>
+      <td>140</td>
+      <td>11</td>
+      <td>6</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>57</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>252</td>
+      <td>9</td>
+      <td>14</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>24</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>195</td>
+      <td>5</td>
+      <td>9</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>32</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>93</td>
+      <td>4</td>
+      <td>8</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>72</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>34</td>
+      <td>3</td>
+      <td>8</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>494</th>
+      <td>0</td>
+      <td>27</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>122</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>495</th>
+      <td>1</td>
+      <td>72</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>158</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>496</th>
+      <td>1</td>
+      <td>25</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>195</td>
+      <td>10</td>
+      <td>10</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>497</th>
+      <td>1</td>
+      <td>47</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>228</td>
+      <td>5</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>498</th>
+      <td>0</td>
+      <td>75</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>215</td>
+      <td>6</td>
+      <td>7</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>499 rows × 9 columns</p>
+</div></div></div>
 </div>
 <section id="korelasi-antar-fitur">
 <h4>Korelasi Antar Fitur<a class="headerlink" href="#korelasi-antar-fitur" title="Link to this heading">#</a></h4>
@@ -583,6 +793,9 @@ Persentase Missing Value per Kolom: Semua kolom juga menunjukkan persentase 0.0%
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/bfd91b2484017e28d0cd00c549012894ebfcec471f5928b5e0a3ad2c4ca7b753.png" src="_images/bfd91b2484017e28d0cd00c549012894ebfcec471f5928b5e0a3ad2c4ca7b753.png" />
+</div>
 </div>
 </section>
 <section id="seleksi-fitur">
@@ -597,6 +810,161 @@ Gaya hidup, seperti smoking_history.</p><div class="cell docutils container">
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gender</th>
+      <th>age</th>
+      <th>heart_disease</th>
+      <th>smoking_history</th>
+      <th>bmi</th>
+      <th>HbA1c_level</th>
+      <th>blood_glucose_level</th>
+      <th>diabetes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>76</td>
+      <td>1</td>
+      <td>3</td>
+      <td>140</td>
+      <td>11</td>
+      <td>6</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>57</td>
+      <td>0</td>
+      <td>0</td>
+      <td>252</td>
+      <td>9</td>
+      <td>14</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>24</td>
+      <td>0</td>
+      <td>3</td>
+      <td>195</td>
+      <td>5</td>
+      <td>9</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>32</td>
+      <td>0</td>
+      <td>0</td>
+      <td>93</td>
+      <td>4</td>
+      <td>8</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>72</td>
+      <td>1</td>
+      <td>0</td>
+      <td>34</td>
+      <td>3</td>
+      <td>8</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>494</th>
+      <td>0</td>
+      <td>27</td>
+      <td>0</td>
+      <td>2</td>
+      <td>122</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>495</th>
+      <td>1</td>
+      <td>72</td>
+      <td>0</td>
+      <td>4</td>
+      <td>158</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>496</th>
+      <td>1</td>
+      <td>25</td>
+      <td>0</td>
+      <td>1</td>
+      <td>195</td>
+      <td>10</td>
+      <td>10</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>497</th>
+      <td>1</td>
+      <td>47</td>
+      <td>0</td>
+      <td>2</td>
+      <td>228</td>
+      <td>5</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>498</th>
+      <td>0</td>
+      <td>75</td>
+      <td>0</td>
+      <td>3</td>
+      <td>215</td>
+      <td>6</td>
+      <td>7</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>499 rows × 8 columns</p>
+</div></div></div>
 </div>
 </section>
 </section>
@@ -637,6 +1005,13 @@ Gaya hidup, seperti smoking_history.</p><div class="cell docutils container">
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error: 0.056
+Root Mean Squared Error: 0.23664319132398465
+R-squared: 0.30223285486443396
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -650,6 +1025,13 @@ Gaya hidup, seperti smoking_history.</p><div class="cell docutils container">
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.944
+Precision: 0.8333333333333334
+Recall: 0.45454545454545453
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -659,6 +1041,9 @@ Gaya hidup, seperti smoking_history.</p><div class="cell docutils container">
 <span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b105c8e2908d1568acc47d639c83f4a640b255c0eb7fd22eb8cde457f041fdcb.png" src="_images/b105c8e2908d1568acc47d639c83f4a640b255c0eb7fd22eb8cde457f041fdcb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -679,6 +1064,11 @@ Gaya hidup, seperti smoking_history.</p><div class="cell docutils container">
   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/76f7d5731f27ce744bf10efb7c8e4da670ef0f011e104548061d5689a16b085a.png" src="_images/76f7d5731f27ce744bf10efb7c8e4da670ef0f011e104548061d5689a16b085a.png" />
+<img alt="_images/a322f6e761950fbfa486eebad7db06e2ad7d40267f938adcbeba3d77288283f8.png" src="_images/a322f6e761950fbfa486eebad7db06e2ad7d40267f938adcbeba3d77288283f8.png" />
+<img alt="_images/3acc3e0fb0d30ba62a0fb7ac5609b13516b003fd596763747f5bb7fe1e4661b7.png" src="_images/3acc3e0fb0d30ba62a0fb7ac5609b13516b003fd596763747f5bb7fe1e4661b7.png" />
 </div>
 </div>
 <p style="text-indent: 50px; text-align: justify;">Model Random Forest menunjukkan performa yang baik:
@@ -727,6 +1117,20 @@ RMSE rendah (0.315) menunjukkan bahwa tingkat kesalahan prediksi cukup kecil. </
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               Feature  Importance
+6          HbA1c_level    0.400882
+7  blood_glucose_level    0.273806
+1                  age    0.131057
+5                  bmi    0.107978
+4      smoking_history    0.031471
+2         hypertension    0.029212
+0               gender    0.016891
+3        heart_disease    0.008703
+</pre></div>
+</div>
+<img alt="_images/e52d466d0c30691d368d915ccd20ef47c915d3dda7f92be173f0c035905917e8.png" src="_images/e52d466d0c30691d368d915ccd20ef47c915d3dda7f92be173f0c035905917e8.png" />
 </div>
 </div>
 <p style="text-indent: 50px; text-align: justify;">Dari hasil fitur penting, fitur yang paling berpengaruh terhadap diabetes adalah HbA1c_level dengan nilai 0.400882, menunjukkan kontribusi signifikan dalam memprediksi risiko diabetes. Diikuti oleh blood_glucose_level yang memiliki nilai 0.273806, menandakan bahwa kadar glukosa darah juga berperan besar. Selanjutnya, age dengan nilai 0.131057 menunjukkan bahwa usia merupakan faktor penting, sementara fitur lainnya seperti BMI dan riwayat merokok memiliki pengaruh yang lebih kecil. Ini menunjukkan bahwa kontrol gula darah dan kesehatan metabolik adalah indikator utama risiko diabetes.</p>
@@ -818,6 +1222,17 @@ RMSE rendah (0.315) menunjukkan bahwa tingkat kesalahan prediksi cukup kecil. </
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.95
+Confusion Matrix:
+[[91  0]
+ [ 5  4]]
+Prediksi untuk data baru: 1 (Probabilitas: [0.29466039 0.70533961])
+Dengan threshold 0.7, hasil prediksi adalah: 1
+</pre></div>
+</div>
+<img alt="_images/b7d73411cd4c2c525516f2505aff44235b9bec7a1c6bc84660c32e50d9bb7885.png" src="_images/b7d73411cd4c2c525516f2505aff44235b9bec7a1c6bc84660c32e50d9bb7885.png" />
+</div>
 </div>
 <p style="text-indent: 50px; text-align: justify;">Model memprediksi data baru termasuk ke dalam kelas 1 karena probabilitasnya melebihi threshold 0.7. Hal ini menunjukkan bahwa model cukup yakin data tersebut milik kelas 1. Akurasi model yang tinggi (95%) mendukung keandalan prediksi ini.</p>
 </section>
@@ -862,7 +1277,7 @@ RMSE rendah (0.315) menunjukkan bahwa tingkat kesalahan prediksi cukup kecil. </
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">PROYEK SAINS DATA</p>
       </div>
     </a>
     <a class="right-next"

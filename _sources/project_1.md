@@ -79,16 +79,6 @@ Jumlah Data: 499 (entri responden).
 Jumlah Label: 1 (status diabetes).
 Jumlah Kelas: 2 (0: tidak diabetes, 1: diabetes).</p>
 
-```{code-cell} python
-kelas = "diabetes"
-
-print(f"Jumlah Atribut/Feature : {len(data_df.axes[1])}")
-print(f"Jumlah Data : {len(data_df.axes[0])}")
-print(f"Jumlah Label : 1 [{kelas}]")
-print(f"Jumlah Kelas : {len(data_df[kelas].unique())} {data_df[kelas].unique()}")
-df.head()
-```
-
 #### c. Exploratory Data Anaysis
 cek tipe dataset, cek missing value, cek duplikat data
 ```{code-cell} python

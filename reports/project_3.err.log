@@ -1,0 +1,108 @@
+Traceback (most recent call last):
+  File "C:\Users\Windows 11\AppData\Local\Programs\Python\Python311\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\Windows 11\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 1265, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Windows 11\AppData\Local\Programs\Python\Python311\Lib\site-packages\jupyter_core\utils\__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Windows 11\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Windows 11\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 703, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\Windows 11\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 1021, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\Windows 11\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 915, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.preprocessing import StandardScaler
+import numpy as np
+
+
+# Pilih kolom yang relevan (misalnya kolom "Close" sebagai target prediksi)
+data_df = data_df[['Close']]
+
+# Buat fitur lag (data_df sebelumnya)
+data_df['Lag_1'] = data_df['Close'].shift(1)
+data_df['Lag_2'] = data_df['Lag_1'].shift(1)
+data_df['Lag_3'] = data_df['Lag_2'].shift(1)
+
+# Hapus baris dengan nilai NaN akibat lagging
+data_df = data_df.dropna()
+
+# Pisahkan fitur (X) dan target (y)
+X = data_df[['Lag_1', 'Lag_2', 'Lag_3']].values
+y = data_df['Close'].values.reshape(-1, 1)
+
+# Normalisasi data_df
+scaler_features = StandardScaler()
+scaler_target = StandardScaler()
+
+X_normalized = scaler_features.fit_transform(X)
+y_normalized = scaler_target.fit_transform(y)
+
+# Bagi data_df menjadi data_df latih dan uji (80% latih, 20% uji)
+train_size = int(0.8 * len(X_normalized))
+X_train, X_test = X_normalized[:train_size], X_normalized[train_size:]
+y_train, y_test = y_normalized[:train_size], y_normalized[train_size:]
+
+# Inisialisasi model Random Forest Regressor
+random_forest_model = RandomForestRegressor(n_estimators=100, random_state=42)
+random_forest_model.fit(X_train, y_train.ravel())
+
+# Fungsi untuk memprediksi harga menggunakan Random Forest
+def predict_stock_price(lag_data):
+    # Normalisasi data_df input
+    lag_data_normalized = scaler_features.transform(np.array(lag_data).reshape(1, -1))
+
+    # Prediksi harga
+    predicted_normalized = random_forest_model.predict(lag_data_normalized)
+
+    # Kembalikan prediksi ke skala asli
+    predicted_original = scaler_target.inverse_transform(predicted_normalized.reshape(-1, 1))
+
+    return predicted_original[0, 0]  # Mengembalikan nilai prediksi dalam bentuk skalar.
+
+# Meminta input data_df dari pengguna
+print("Masukkan harga saham dari 3 hari sebelumnya:")
+lag_1 = float(input("Harga 1 hari sebelumnya: "))
+lag_2 = float(input("Harga 2 hari sebelumnya: "))
+lag_3 = float(input("Harga 3 hari sebelumnya: "))
+
+# Data input untuk prediksi
+user_input = [lag_1, lag_2, lag_3]
+
+# Prediksi harga saham untuk hari berikutnya
+predicted_price = predict_stock_price(user_input)
+print(f"Prediksi harga saham untuk hari berikutnya adalah: {predicted_price:.2f}")
+
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+Cell [1;32mIn[12], line 53[0m
+[0;32m     51[0m [38;5;66;03m# Meminta input data_df dari pengguna[39;00m
+[0;32m     52[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mMasukkan harga saham dari 3 hari sebelumnya:[39m[38;5;124m"[39m)
+[1;32m---> 53[0m lag_1 [38;5;241m=[39m [38;5;28mfloat[39m([38;5;28;43minput[39;49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mHarga 1 hari sebelumnya: [39;49m[38;5;124;43m"[39;49m[43m)[49m)
+[0;32m     54[0m lag_2 [38;5;241m=[39m [38;5;28mfloat[39m([38;5;28minput[39m([38;5;124m"[39m[38;5;124mHarga 2 hari sebelumnya: [39m[38;5;124m"[39m))
+[0;32m     55[0m lag_3 [38;5;241m=[39m [38;5;28mfloat[39m([38;5;28minput[39m([38;5;124m"[39m[38;5;124mHarga 3 hari sebelumnya: [39m[38;5;124m"[39m))
+
+File [1;32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelbase.py:1181[0m, in [0;36mKernel.raw_input[1;34m(self, prompt)[0m
+[0;32m   1179[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39m_allow_stdin:
+[0;32m   1180[0m     msg [38;5;241m=[39m [38;5;124m"[39m[38;5;124mraw_input was called, but this frontend does not support input requests.[39m[38;5;124m"[39m
+[1;32m-> 1181[0m     [38;5;28;01mraise[39;00m StdinNotImplementedError(msg)
+[0;32m   1182[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_input_request(
+[0;32m   1183[0m     [38;5;28mstr[39m(prompt),
+[0;32m   1184[0m     [38;5;28mself[39m[38;5;241m.[39m_parent_ident[[38;5;124m"[39m[38;5;124mshell[39m[38;5;124m"[39m],
+[0;32m   1185[0m     [38;5;28mself[39m[38;5;241m.[39mget_parent([38;5;124m"[39m[38;5;124mshell[39m[38;5;124m"[39m),
+[0;32m   1186[0m     password[38;5;241m=[39m[38;5;28;01mFalse[39;00m,
+[0;32m   1187[0m )
+
+[1;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+

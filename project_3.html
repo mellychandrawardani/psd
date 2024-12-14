@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Laporan Project 1 &#8212; My sample book</title>
+    <title>Prediksi Harga Saham &#8212; My sample book</title>
   
   
   
@@ -63,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'project_3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Laporan Project 1" href="project_2.html" />
+    <link rel="prev" title="Prediksi Harga Telur Ayam" href="project_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -163,30 +163,14 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    PROYEK SAINS DATA
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="project_1.html">Laporan Project 1</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="project_2.html">Laporan Project 1</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Laporan Project 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_1.html">Prediksi Penyakit Diabetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_2.html">Prediksi Harga Telur Ayam</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Prediksi Harga Saham</a></li>
 </ul>
 
     </div>
@@ -364,7 +348,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Laporan Project 1</h1>
+    <h1>Prediksi Harga Saham</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -374,7 +358,31 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">Pendahuluan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">Latar Belakang</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumusan-masalah">Rumusan Masalah</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">Sumber Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-preparation">a. Data Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-wrangling">b. Data Wrangling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-data-understanding">c. Data Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value">missing value</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#akorelasi-antar-fitur">Akorelasi antar fitur</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-preprocessing-data">d. Preprocessing Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sliding-windows">sliding windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data">Normalisasi data</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-modelling">e. Modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#regresi-linier">regresi linier</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">random forest</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-testing-data-baru">f. Testing data baru</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -386,10 +394,578 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="laporan-project-1">
-<h1>Laporan Project 1<a class="headerlink" href="#laporan-project-1" title="Link to this heading">#</a></h1>
-<section id="pendahuluan">
-<h2>Pendahuluan<a class="headerlink" href="#pendahuluan" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="prediksi-harga-saham">
+<h1>Prediksi Harga Saham<a class="headerlink" href="#prediksi-harga-saham" title="Link to this heading">#</a></h1>
+<section id="latar-belakang">
+<h2>Latar Belakang<a class="headerlink" href="#latar-belakang" title="Link to this heading">#</a></h2>
+<p style="text-indent: 50px; text-align: justify;">
+Pasar saham merupakan salah satu indikator penting dalam mengukur kesehatan ekonomi suatu negara. Salah satu saham yang menarik perhatian investor di Indonesia adalah saham PT Telekomunikasi Indonesia Tbk (Telkom), yang merupakan perusahaan besar di sektor telekomunikasi. Fluktuasi harga saham Telkom dipengaruhi oleh berbagai faktor, termasuk kinerja perusahaan, kondisi ekonomi, serta faktor eksternal global dan lokal. Oleh karena itu, kemampuan untuk memprediksi harga saham menjadi penting bagi para investor dan analis pasar.
+Pemanfaatan teknologi untuk memprediksi harga saham dapat memberikan keuntungan besar dalam pengambilan keputusan investasi. Dengan menggunakan data historis harga saham yang tersedia selama lima tahun, model prediksi berbasis pembelajaran mesin dapat memberikan perkiraan yang lebih akurat mengenai arah pergerakan harga saham Telkom di masa depan. Penelitian ini bertujuan untuk mengembangkan model prediksi yang dapat membantu para investor dalam merencanakan strategi investasi yang lebih efektif dan efisien.
+</p>
+</section>
+<section id="rumusan-masalah">
+<h2>Rumusan Masalah<a class="headerlink" href="#rumusan-masalah" title="Link to this heading">#</a></h2>
+<p style="text-indent: 50px; text-align: justify;">
+Bagaimana prediksi harga saham Telkom dapat meningkatkan keputusan investasi yang lebih menguntungkan bagi investor?
+Apa metode yang paling efektif dalam memprediksi pergerakan harga saham Telkom untuk mendukung optimalisasi portofolio saham?
+Bagaimana prediksi harga saham Telkom dapat membantu mengurangi risiko investasi di pasar saham?</p>
+</section>
+<section id="tujuan">
+<h2>Tujuan<a class="headerlink" href="#tujuan" title="Link to this heading">#</a></h2>
+<p style="text-indent: 50px; text-align: justify;">
+Meningkatkan Keputusan Investasi: Membantu investor membuat keputusan investasi yang lebih tepat terkait saham Telkom melalui prediksi harga yang akurat.
+Optimalisasi Portofolio Saham: Memungkinkan manajer portofolio untuk mengalokasikan aset dengan lebih efisien, berdasarkan prediksi harga saham Telkom.
+Meminimalkan Risiko: Menyediakan prediksi harga yang dapat mengurangi risiko kerugian bagi investor dalam perdagangan saham Telkom.
+</p>
+</section>
+<section id="sumber-data">
+<h2>Sumber Data<a class="headerlink" href="#sumber-data" title="Link to this heading">#</a></h2>
+<p style="text-indent: 50px; text-align: justify;">Dataset ini berasal dari Kaggle yang merupakan dataset saham telkom selama 5 tahun.  </p>
+<section id="a-data-preparation">
+<h3>a. Data Preparation<a class="headerlink" href="#a-data-preparation" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-data-wrangling">
+<h3>b. Data Wrangling<a class="headerlink" href="#b-data-wrangling" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/mellychandrawardani/mellychandrawardani/main/data_saham.csv&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         Date    Open    High     Low   Close    Adj Close     Volume
+0  2016-11-17  3950.0  4040.0  3950.0  4000.0  3431.399658   84236700
+1  2016-11-18  4020.0  4030.0  3960.0  3970.0  3405.663818   98115300
+2  2016-11-21  3950.0  3970.0  3920.0  3930.0  3371.350098   82463000
+3  2016-11-22  3920.0  3970.0  3910.0  3950.0  3388.507080   69602800
+4  2016-11-23  3930.0  3970.0  3920.0  3940.0  3379.928467  108352600
+</pre></div>
+</div>
+</div>
+</div>
+<p style="text-indent: 50px; text-align: justify;"> 
+Data mencakup informasi tanggal, harga pembukaan, tertinggi, terendah, penutupan, penutupan yang disesuaikan, dan volume perdagangan. Tanggal mencerminkan waktu transaksi, sementara harga pembukaan menunjukkan nilai saham saat pasar dibuka, sedangkan harga tertinggi dan terendah memberikan gambaran tentang fluktuasi harga dalam sehari. Harga penutupan mencerminkan nilai akhir pada hari itu, sedangkan penutupan yang disesuaikan memperhitungkan faktor-faktor seperti dividen dan pemecahan saham. Volume perdagangan menunjukkan jumlah saham yang diperdagangkan, yang dapat mengindikasikan minat investor. Dengan menganalisis data ini, investor dapat mengevaluasi tren, volatilitas, dan aktivitas pasar untuk membuat keputusan investasi yang lebih baik.</p>
+</section>
+<section id="c-data-understanding">
+<h3>c. Data Understanding<a class="headerlink" href="#c-data-understanding" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Memeriksa apakah kolom &#39;Date&#39; ada</span>
+<span class="k">if</span> <span class="s1">&#39;Date&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Kolom &#39;Date&#39; tidak ditemukan. Periksa nama kolom dalam dataset.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Mengatur kolom &#39;Date&#39; sebagai indeks dan mengubah formatnya</span>
+<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="n">data_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Memastikan kolom yang diperlukan ada</span>
+<span class="n">required_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">,</span> <span class="s1">&#39;High&#39;</span><span class="p">,</span> <span class="s1">&#39;Low&#39;</span><span class="p">,</span> <span class="s1">&#39;Close&#39;</span><span class="p">,</span> <span class="s1">&#39;Adj Close&#39;</span><span class="p">,</span> <span class="s1">&#39;Volume&#39;</span><span class="p">]</span>
+<span class="n">data_df</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="n">required_columns</span><span class="p">]</span>
+
+<span class="c1"># Menghapus missing values</span>
+<span class="n">data_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p style="text-indent: 50px; text-align: justify;"> mempersiapkan dan membersihkan dataset data saham. Pertama, ia memeriksa keberadaan kolom 'Date' dan mengeluarkan kesalahan jika kolom tersebut tidak ditemukan. Selanjutnya, kolom 'Date' diubah menjadi format datetime dan diatur sebagai indeks DataFrame, memungkinkan operasi berbasis waktu yang lebih mudah. Kode ini kemudian memastikan bahwa hanya kolom yang diperlukan, yaitu 'Open', 'High', 'Low', 'Close', 'Adj Close', dan 'Volume', yang tersisa dalam DataFrame. Terakhir, baris dengan nilai hilang dihapus untuk memastikan data yang bersih dan lengkap, sehingga siap untuk analisis lebih lanjut.</p><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Date&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/4df70b6e6ed0efc59c2db4d8aca7c1b02fee78349ec2e928107994819c5364dd.png" src="_images/4df70b6e6ed0efc59c2db4d8aca7c1b02fee78349ec2e928107994819c5364dd.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>  <span class="c1"># Menampilkan informasi umum mengenai DataFrame, termasuk jumlah entri, jumlah kolom, tipe data setiap kolom, dan apakah ada nilai kosong (non-null).</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ukuran data &#39;</span><span class="p">,</span> <span class="n">data_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># Menampilkan ukuran data dalam format tuple (jumlah baris, jumlah kolom).</span>
+<span class="n">data_df</span><span class="o">.</span><span class="n">dtypes</span>  <span class="c1"># Menampilkan tipe data dari setiap kolom dalam DataFrame.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+DatetimeIndex: 1259 entries, 2016-11-17 to 2021-11-16
+Data columns (total 6 columns):
+ #   Column     Non-Null Count  Dtype  
+---  ------     --------------  -----  
+ 0   Open       1259 non-null   float64
+ 1   High       1259 non-null   float64
+ 2   Low        1259 non-null   float64
+ 3   Close      1259 non-null   float64
+ 4   Adj Close  1259 non-null   float64
+ 5   Volume     1259 non-null   int64  
+dtypes: float64(5), int64(1)
+memory usage: 68.9 KB
+Ukuran data  (1259, 6)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Open         float64
+High         float64
+Low          float64
+Close        float64
+Adj Close    float64
+Volume         int64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<section id="missing-value">
+<h4>missing value<a class="headerlink" href="#missing-value" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mencari Missing Value</span>
+<span class="n">data_df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Open         0
+High         0
+Low          0
+Close        0
+Adj Close    0
+Volume       0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="akorelasi-antar-fitur">
+<h4>Akorelasi antar fitur<a class="headerlink" href="#akorelasi-antar-fitur" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="c1"># Menghitung korelasi antar fitur untuk subset yang diinginkan</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[[</span><span class="s1">&#39;Open&#39;</span><span class="p">,</span> <span class="s1">&#39;High&#39;</span><span class="p">,</span> <span class="s1">&#39;Low&#39;</span><span class="p">,</span> <span class="s1">&#39;Close&#39;</span><span class="p">,</span> <span class="s1">&#39;Adj Close&#39;</span><span class="p">,</span> <span class="s1">&#39;Volume&#39;</span><span class="p">]]</span>
+<span class="n">correlation_matrix</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="c1"># Menampilkan matriks korelasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matriks Korelasi:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">correlation_matrix</span><span class="p">)</span>
+
+<span class="c1"># Menggambar heatmap untuk visualisasi korelasi</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Heatmap Korelasi antar Fitur&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">correlation_matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matriks Korelasi:
+               Open      High       Low     Close  Adj Close    Volume
+Open       1.000000  0.995469  0.996458  0.991921   0.946055 -0.317581
+High       0.995469  1.000000  0.994638  0.996716   0.949567 -0.285561
+Low        0.996458  0.994638  1.000000  0.996065   0.951401 -0.340484
+Close      0.991921  0.996716  0.996065  1.000000   0.955870 -0.310277
+Adj Close  0.946055  0.949567  0.951401  0.955870   1.000000 -0.295026
+Volume    -0.317581 -0.285561 -0.340484 -0.310277  -0.295026  1.000000
+</pre></div>
+</div>
+<img alt="_images/93496d2f6c4927cca7633dcd9f25d29bade155dc69f2f00d2fb979651a12c7b0.png" src="_images/93496d2f6c4927cca7633dcd9f25d29bade155dc69f2f00d2fb979651a12c7b0.png" />
+</div>
+</div>
+<p style="text-indent: 50px; text-align: justify;">Hasil korelasi antar fitur menunjukkan hubungan linear antara pasangan fitur dalam data. Nilai korelasi berkisar dari -1 hingga 1, di mana nilai mendekati 1 menunjukkan korelasi positif yang kuat, mendekati -1 menunjukkan korelasi negatif yang kuat, dan mendekati 0 menunjukkan korelasi lemah atau tidak ada hubungan. Dari matriks ini, fitur "Open", "High", "Low", dan "Close" memiliki korelasi positif yang sangat kuat satu sama lain (di atas 0.99), menunjukkan bahwa pergerakan harga cenderung sejalan. Korelasi "Adj Close" juga tinggi terhadap fitur harga lainnya (sekitar 0.94–0.96), mengindikasikan hubungan yang signifikan dengan harga penutupan setelah penyesuaian. Sebaliknya, fitur "Volume" memiliki korelasi negatif lemah terhadap semua fitur harga (sekitar -0.29 hingga -0.34), yang menunjukkan bahwa volume perdagangan tidak secara langsung berkaitan dengan fluktuasi harga.</p>
+</section>
+</section>
+<section id="d-preprocessing-data">
+<h3>d. Preprocessing Data<a class="headerlink" href="#d-preprocessing-data" title="Link to this heading">#</a></h3>
+<section id="sliding-windows">
+<h4>sliding windows<a class="headerlink" href="#sliding-windows" title="Link to this heading">#</a></h4>
+<p style="text-indent: 50px; text-align: justify;">Sliding window adalah teknik yang digunakan dalam pemrograman dan analisis data untuk mengatasi masalah yang melibatkan subarray atau subsequence dari data. Teknik ini memungkinkan kita untuk memproses elemen dalam array atau daftar secara efisien dengan menggunakan dua pointer atau indeks yang bergerak di sepanjang data.p><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fungsi untuk membuat sliding windows</span>
+<span class="k">def</span> <span class="nf">create_sliding_windows</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">window_size</span><span class="p">):</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="n">window_size</span><span class="p">):</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">window_size</span><span class="p">])</span>
+        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">window_size</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Menyiapkan data untuk sliding windows</span>
+<span class="n">window_size</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># Ukuran window</span>
+<span class="n">data_values</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">,</span> <span class="s1">&#39;High&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># Menggunakan kolom &#39;Close&#39; dan &#39;High&#39; untuk prediksi</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">create_sliding_windows</span><span class="p">(</span><span class="n">data_values</span><span class="p">,</span> <span class="n">window_size</span><span class="p">)</span>
+
+<span class="c1"># Membuat DataFrame untuk hasil sliding windows</span>
+<span class="n">sliding_window_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Close_t-</span><span class="si">{</span><span class="n">window_size</span><span class="o">-</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">window_size</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;High_t-</span><span class="si">{</span><span class="n">window_size</span><span class="o">-</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">window_size</span><span class="p">)])</span>
+<span class="n">sliding_window_df</span><span class="p">[</span><span class="s1">&#39;Target_Close_t&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Target Close</span>
+<span class="n">sliding_window_df</span><span class="p">[</span><span class="s1">&#39;Target_High_t&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Target High</span>
+
+<span class="c1"># Menampilkan hasil sliding windows</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sliding_window_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Close_t-3  Close_t-2  Close_t-1  High_t-3  High_t-2  High_t-1  \
+0     4000.0     4040.0     3970.0    4030.0    3930.0    3970.0   
+1     3970.0     4030.0     3930.0    3970.0    3950.0    3970.0   
+2     3930.0     3970.0     3950.0    3970.0    3940.0    3970.0   
+3     3950.0     3970.0     3940.0    3970.0    3810.0    3930.0   
+4     3940.0     3970.0     3810.0    3930.0    3830.0    3830.0   
+
+   Target_Close_t  Target_High_t  
+0          3950.0         3970.0  
+1          3940.0         3970.0  
+2          3810.0         3930.0  
+3          3830.0         3830.0  
+4          3840.0         3860.0  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="normalisasi-data">
+<h4>Normalisasi data<a class="headerlink" href="#normalisasi-data" title="Link to this heading">#</a></h4>
+<p style="text-indent: 50px; text-align: justify;"> Normalisasi data adalah proses mengubah skala atau rentang nilai dari dataset sehingga semua fitur memiliki skala yang seragam, yang sangat penting dalam analisis data dan machine learning. Tujuannya adalah untuk menghindari dominasi fitur dengan rentang nilai yang lebih besar, meningkatkan konvergensi model dalam algoritma optimisasi, serta mempermudah visualisasi dan perbandingan antar fitur. Dengan normalisasi, model dapat beroperasi lebih efektif dan akurat, karena setiap fitur berkontribusi secara seimbang tanpa bias yang disebabkan oleh skala yang berbeda. Metode umum normalisasi termasuk Min-Max Scaling dan Z-Score Normalization, yang membantu dalam preprocessing data sebelum analisis lebih lanjut.</p><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inisialisasi scaler untuk fitur (input) dan target (output)</span>
+<span class="n">scaler_features</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">scaler_target</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+
+<span class="c1"># Normalisasi fitur (Close_t-3, Close_t-2, Close_t-1, High_t-3, High_t-2, High_t-1)</span>
+<span class="n">df_features_normalized</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">scaler_features</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sliding_window_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]),</span>  <span class="c1"># Ambil semua kolom kecuali target</span>
+    <span class="n">columns</span><span class="o">=</span><span class="n">sliding_window_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>  <span class="c1"># Nama kolom tanpa target</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">sliding_window_df</span><span class="o">.</span><span class="n">index</span>
+<span class="p">)</span>
+
+<span class="c1"># Normalisasi target (Target_Close_t dan Target_High_t)</span>
+<span class="n">df_target_normalized</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">scaler_target</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sliding_window_df</span><span class="p">[[</span><span class="s1">&#39;Target_Close_t&#39;</span><span class="p">,</span> <span class="s1">&#39;Target_High_t&#39;</span><span class="p">]]),</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Target_Close_t&#39;</span><span class="p">,</span> <span class="s1">&#39;Target_High_t&#39;</span><span class="p">],</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">sliding_window_df</span><span class="o">.</span><span class="n">index</span>
+<span class="p">)</span>
+
+<span class="c1"># Gabungkan kembali dataframe yang sudah dinormalisasi</span>
+<span class="n">df_normalized</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_features_normalized</span><span class="p">,</span> <span class="n">df_target_normalized</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan hasil normalisasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_normalized</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Mengatur fitur (X) dan target (y)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_normalized</span><span class="p">[[</span><span class="s1">&#39;Close_t-3&#39;</span><span class="p">,</span> <span class="s1">&#39;Close_t-2&#39;</span><span class="p">,</span> <span class="s1">&#39;Close_t-1&#39;</span><span class="p">,</span> <span class="s1">&#39;High_t-3&#39;</span><span class="p">,</span> <span class="s1">&#39;High_t-2&#39;</span><span class="p">,</span> <span class="s1">&#39;High_t-1&#39;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_normalized</span><span class="p">[[</span><span class="s1">&#39;Target_Close_t&#39;</span><span class="p">,</span> <span class="s1">&#39;Target_High_t&#39;</span><span class="p">]]</span>  <span class="c1"># Target adalah harga yang dinormalisasi</span>
+
+<span class="c1"># Membagi data menjadi training dan testing (80% training, 20% testing)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;===== Data Train =====&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;===== Data Testing ====&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Mengambil nilai tanggal dari indeks X_train dan X_test</span>
+<span class="n">dates_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">index</span>
+<span class="n">dates_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">index</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Plot data Close dan High dengan format tanggal di sumbu x</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+<span class="c1"># Plot Close</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Close&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot High</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;High&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+
+<span class="c1"># Format sumbu x agar menampilkan tanggal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">MonthLocator</span><span class="p">())</span>  <span class="c1"># Menampilkan label tanggal per bulan</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Close and High Prices Over Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>  <span class="c1"># Putar label tanggal agar tidak tumpang tindih</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Close_t-3  Close_t-2  Close_t-1  High_t-3  High_t-2  High_t-1  \
+0   0.642857   0.644444   0.629464  0.640000  0.611607  0.613333   
+1   0.629464   0.640000   0.611607  0.613333  0.620536  0.613333   
+2   0.611607   0.613333   0.620536  0.613333  0.616071  0.613333   
+3   0.620536   0.613333   0.616071  0.613333  0.558036  0.595556   
+4   0.616071   0.613333   0.558036  0.595556  0.566964  0.551111   
+
+   Target_Close_t  Target_High_t  
+0        0.620536       0.613333  
+1        0.616071       0.613333  
+2        0.558036       0.595556  
+3        0.566964       0.551111  
+4        0.571429       0.564444  
+===== Data Train =====
+      Close_t-3  Close_t-2  Close_t-1  High_t-3  High_t-2  High_t-1
+0      0.642857   0.644444   0.629464  0.640000  0.611607  0.613333
+1      0.629464   0.640000   0.611607  0.613333  0.620536  0.613333
+2      0.611607   0.613333   0.620536  0.613333  0.616071  0.613333
+3      0.620536   0.613333   0.616071  0.613333  0.558036  0.595556
+4      0.616071   0.613333   0.558036  0.595556  0.566964  0.551111
+...         ...        ...        ...       ...       ...       ...
+999    0.053571   0.053333   0.062500  0.057778  0.031250  0.057778
+1000   0.062500   0.057778   0.031250  0.057778  0.040179  0.040000
+1001   0.031250   0.057778   0.040179  0.040000  0.026786  0.044444
+1002   0.040179   0.040000   0.026786  0.044444  0.000000  0.013333
+1003   0.026786   0.044444   0.000000  0.013333  0.008929  0.000000
+
+[1004 rows x 6 columns]
+===== Data Testing ====
+      Close_t-3  Close_t-2  Close_t-1  High_t-3  High_t-2  High_t-1
+1004   0.000000   0.013333   0.008929  0.000000  0.008929  0.022222
+1005   0.008929   0.000000   0.008929  0.022222  0.093750  0.097778
+1006   0.008929   0.022222   0.093750  0.097778  0.120536  0.111111
+1007   0.093750   0.097778   0.120536  0.111111  0.142857  0.137778
+1008   0.120536   0.111111   0.142857  0.137778  0.133929  0.160000
+...         ...        ...        ...       ...       ...       ...
+1251   0.540179   0.524444   0.531250  0.528889  0.513393  0.511111
+1252   0.531250   0.528889   0.513393  0.511111  0.508929  0.502222
+1253   0.513393   0.511111   0.508929  0.502222  0.486607  0.506667
+1254   0.508929   0.502222   0.486607  0.506667  0.464286  0.475556
+1255   0.486607   0.506667   0.464286  0.475556  0.464286  0.471111
+
+[252 rows x 6 columns]
+</pre></div>
+</div>
+<img alt="_images/ff6ecffd08671a9a8fb46b27976b2ddf527b17959e7befaeb7e3d272f6910e26.png" src="_images/ff6ecffd08671a9a8fb46b27976b2ddf527b17959e7befaeb7e3d272f6910e26.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="e-modelling">
+<h3>e. Modelling<a class="headerlink" href="#e-modelling" title="Link to this heading">#</a></h3>
+<section id="regresi-linier">
+<h4>regresi linier<a class="headerlink" href="#regresi-linier" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membuat model regresi linier</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Memprediksi harga menggunakan model</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Menghitung Mean Squared Error</span>
+<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean Squared Error: </span><span class="si">{</span><span class="n">mse</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Membuat plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="p">[</span><span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>  <span class="c1"># Garis identitas</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Nilai Aktual&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Nilai Prediksi&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Plot Nilai Aktual vs Prediksi</span><span class="se">\n</span><span class="s1">MSE: </span><span class="si">{</span><span class="n">mse</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error: 0.0006832952224158998
+</pre></div>
+</div>
+<img alt="_images/262e6be9dda687cb46ff0398d0c92760c390c1eae200c77234f9d21c6d0ed866.png" src="_images/262e6be9dda687cb46ff0398d0c92760c390c1eae200c77234f9d21c6d0ed866.png" />
+</div>
+</div>
+</section>
+<section id="random-forest">
+<h4>random forest<a class="headerlink" href="#random-forest" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+
+<span class="c1"># Misalkan dataset kamu punya fitur X dan target y</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Membuat model Random Forest</span>
+<span class="n">rf_model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">rf_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Memprediksi harga menggunakan Random Forest</span>
+<span class="n">rf_y_pred</span> <span class="o">=</span> <span class="n">rf_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Menghitung Mean Squared Error untuk Random Forest</span>
+<span class="n">rf_mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">rf_y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean Squared Error (Random Forest): </span><span class="si">{</span><span class="n">rf_mse</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Membuat plot untuk perbandingan hanya Random Forest</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">rf_y_pred</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Random Forest&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="p">[</span><span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Identity Line&#39;</span><span class="p">)</span>  <span class="c1"># Garis identitas</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Nilai Aktual&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Nilai Prediksi&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Plot Nilai Aktual vs Prediksi (Random Forest)</span><span class="se">\n</span><span class="s1">MSE: </span><span class="si">{</span><span class="n">rf_mse</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (Random Forest): 0.0006398011234613856
+</pre></div>
+</div>
+<img alt="_images/d82e74cc0a25ddc1ed87b22f3b211038c1d9bc87425f87e597d5682df7ee5610.png" src="_images/d82e74cc0a25ddc1ed87b22f3b211038c1d9bc87425f87e597d5682df7ee5610.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="f-testing-data-baru">
+<h3>f. Testing data baru<a class="headerlink" href="#f-testing-data-baru" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="c1"># Pilih kolom yang relevan (misalnya kolom &quot;Close&quot; sebagai target prediksi)</span>
+<span class="n">data_df</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">]]</span>
+
+<span class="c1"># Buat fitur lag (data_df sebelumnya)</span>
+<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Lag_2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Hapus baris dengan nilai NaN akibat lagging</span>
+<span class="n">data_df</span> <span class="o">=</span> <span class="n">data_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># Pisahkan fitur (X) dan target (y)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[[</span><span class="s1">&#39;Lag_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Lag_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Lag_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Normalisasi data_df</span>
+<span class="n">scaler_features</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">scaler_target</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="n">X_normalized</span> <span class="o">=</span> <span class="n">scaler_features</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">y_normalized</span> <span class="o">=</span> <span class="n">scaler_target</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Bagi data_df menjadi data_df latih dan uji (80% latih, 20% uji)</span>
+<span class="n">train_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.8</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_normalized</span><span class="p">))</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X_normalized</span><span class="p">[:</span><span class="n">train_size</span><span class="p">],</span> <span class="n">X_normalized</span><span class="p">[</span><span class="n">train_size</span><span class="p">:]</span>
+<span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y_normalized</span><span class="p">[:</span><span class="n">train_size</span><span class="p">],</span> <span class="n">y_normalized</span><span class="p">[</span><span class="n">train_size</span><span class="p">:]</span>
+
+<span class="c1"># Inisialisasi model Random Forest Regressor</span>
+<span class="n">random_forest_model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">random_forest_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+
+<span class="c1"># Fungsi untuk memprediksi harga menggunakan Random Forest</span>
+<span class="k">def</span> <span class="nf">predict_stock_price</span><span class="p">(</span><span class="n">lag_data</span><span class="p">):</span>
+    <span class="c1"># Normalisasi data_df input</span>
+    <span class="n">lag_data_normalized</span> <span class="o">=</span> <span class="n">scaler_features</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">lag_data</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># Prediksi harga</span>
+    <span class="n">predicted_normalized</span> <span class="o">=</span> <span class="n">random_forest_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">lag_data_normalized</span><span class="p">)</span>
+
+    <span class="c1"># Kembalikan prediksi ke skala asli</span>
+    <span class="n">predicted_original</span> <span class="o">=</span> <span class="n">scaler_target</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">predicted_normalized</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">predicted_original</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Mengembalikan nilai prediksi dalam bentuk skalar.</span>
+
+<span class="c1"># Meminta input data_df dari pengguna</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Masukkan harga saham dari 3 hari sebelumnya:&quot;</span><span class="p">)</span>
+<span class="n">lag_1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 1 hari sebelumnya: &quot;</span><span class="p">))</span>
+<span class="n">lag_2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 2 hari sebelumnya: &quot;</span><span class="p">))</span>
+<span class="n">lag_3</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 3 hari sebelumnya: &quot;</span><span class="p">))</span>
+
+<span class="c1"># Data input untuk prediksi</span>
+<span class="n">user_input</span> <span class="o">=</span> <span class="p">[</span><span class="n">lag_1</span><span class="p">,</span> <span class="n">lag_2</span><span class="p">,</span> <span class="n">lag_3</span><span class="p">]</span>
+
+<span class="c1"># Prediksi harga saham untuk hari berikutnya</span>
+<span class="n">predicted_price</span> <span class="o">=</span> <span class="n">predict_stock_price</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prediksi harga saham untuk hari berikutnya adalah: </span><span class="si">{</span><span class="n">predicted_price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Windows 11\AppData\Local\Temp\ipykernel_6260\197555454.py:11: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_df[&#39;Lag_1&#39;] = data_df[&#39;Close&#39;].shift(1)
+C:\Users\Windows 11\AppData\Local\Temp\ipykernel_6260\197555454.py:12: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_df[&#39;Lag_2&#39;] = data_df[&#39;Lag_1&#39;].shift(1)
+C:\Users\Windows 11\AppData\Local\Temp\ipykernel_6260\197555454.py:13: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_df[&#39;Lag_3&#39;] = data_df[&#39;Lag_2&#39;].shift(1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Masukkan harga saham dari 3 hari sebelumnya:
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">53</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="c1"># Meminta input data_df dari pengguna</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Masukkan harga saham dari 3 hari sebelumnya:&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">53</span> <span class="n">lag_1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 1 hari sebelumnya: &quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="n">lag_2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 2 hari sebelumnya: &quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="n">lag_3</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Harga 3 hari sebelumnya: &quot;</span><span class="p">))</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelbase.py:1181,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1181</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1183</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1184</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1185</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1186</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1187</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="kesimpulan">
+<h3>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h3>
+<p style="text-indent: 50px; text-align: justify;">Kesimpulannya dari hasil mse kedua model, random forest mendapatkan hasil yang lebih baik daripada regresi linier karena nilai mse nya lebih kecil.</p></section>
 </section>
 </section>
 
@@ -429,7 +1005,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Laporan Project 1</p>
+        <p class="prev-next-title">Prediksi Harga Telur Ayam</p>
       </div>
     </a>
 </div>
@@ -449,7 +1025,31 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">Pendahuluan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">Latar Belakang</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumusan-masalah">Rumusan Masalah</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">Sumber Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-preparation">a. Data Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-wrangling">b. Data Wrangling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-data-understanding">c. Data Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value">missing value</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#akorelasi-antar-fitur">Akorelasi antar fitur</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-preprocessing-data">d. Preprocessing Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sliding-windows">sliding windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data">Normalisasi data</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-modelling">e. Modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#regresi-linier">regresi linier</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">random forest</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-testing-data-baru">f. Testing data baru</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

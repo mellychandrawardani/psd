@@ -133,7 +133,7 @@ data_df
 ```
 
 ##### Korelasi Antar Fitur
-<p style="text-indent: 50px; text-align: justify;"> Korelasi antar fitur digunakan untuk memahami hubungan antara variabel dalam dataset</p>
+<p style="text-indent: 50px; text-align: justify;"> Korelasi antar fitur digunakan untuk memahami hubungan antara variabel dalam dataset. Hasilnya: "HbA1c_level" dan "blood_glucose_level" menunjukkan korelasi positif yang signifikan. "blood_glucose_level" berkorelasi dengan target "diabetes", mendukung fakta bahwa peningkatan kadar gula darah berkaitan erat dengan risiko diabetes. Fitur-fitur lain seperti "gender" atau "smoking_history" tampaknya tidak berpengaruh besar terhadap fitur lain dalam dataset ini.</p>
 
 ```{code-cell} python
 corr_data_df = data_df.copy()
@@ -152,7 +152,8 @@ plt.show()
 ```
 
 ##### Seleksi Fitur
-<p style="text-indent: 50px; text-align: justify;">Seleksi fitur adalah proses memilih subset fitur yang paling relevan dari dataset untuk digunakan dalam model pembelajaran mesin</p>
+<p style="text-indent: 50px; text-align: justify;">Seleksi fitur adalah proses memilih subset fitur yang paling relevan dari dataset untuk digunakan dalam model pembelajaran mesin. Hasil seleksi ini menunjukkan bahwa fitur-fitur yang dipilih memiliki keterkaitan yang lebih signifikan terhadap prediksi diabetes, yaitu: Kadar glukosa darah (blood_glucose_level) dan HbA1c_level sebagai indikator langsung. Faktor risiko klinis, seperti BMI dan heart_disease. Faktor demografis, seperti age dan gender.
+Gaya hidup, seperti smoking_history.</p>
 
 ```{code-cell} python
 main_df = pd.concat([data_df[data_df.columns[0:2]], data_df[data_df.columns[3:]]], axis=1)
@@ -217,6 +218,13 @@ for i in range(3):
   plt.title("Decision Tree from Random Forest")
   plt.show()
   ```
+
+<p style="text-indent: 50px; text-align: justify;">Model Random Forest menunjukkan performa yang baik:
+Akurasi: 88%
+Precision: 92.3%
+Recall: 81.8%
+R-squared score sebesar 78.2% menunjukkan bahwa model mampu menjelaskan sebagian besar variasi dalam data.
+RMSE rendah (0.315) menunjukkan bahwa tingkat kesalahan prediksi cukup kecil. </p>
 
 ### f. Feature Important
 ```{code-cell} python
@@ -339,6 +347,7 @@ disp.plot(cmap=plt.cm.Blues)
 plt.title('Confusion Matrix')
 plt.show()
 ```
+<p style="text-indent: 50px; text-align: justify;">Model memprediksi data baru termasuk ke dalam kelas 1 karena probabilitasnya melebihi threshold 0.7. Hal ini menunjukkan bahwa model cukup yakin data tersebut milik kelas 1. Akurasi model yang tinggi (95%) mendukung keandalan prediksi ini.</p>
 
 ### Kesimpulan
 <p style="text-indent: 50px; text-align: justify;">kesimpulan metode random forest tersebut sudah baik karena menghasilkan mse yang kecil yaitu 0.048. fitur yg paling berpengaruh yaitu hba1c_level serta blood_glucose_level.</p>

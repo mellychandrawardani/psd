@@ -27,8 +27,8 @@ print(f"Jumlah Kelas : {len(data_df[kelas].unique())} {data_df[kelas].unique()}"
 df.head()
 ------------------
 
-[1;31m--------------------------------------------[0m
-[1;31mNameError[0m  Traceback (most recent call last)
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mNameError[0m                                 Traceback (most recent call last)
 Cell [1;32mIn[3], line 7[0m
 [0;32m      5[0m [38;5;28mprint[39m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mJumlah Label : 1 [[39m[38;5;132;01m{[39;00mkelas[38;5;132;01m}[39;00m[38;5;124m][39m[38;5;124m"[39m)
 [0;32m      6[0m [38;5;28mprint[39m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mJumlah Kelas : [39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(data_df[kelas][38;5;241m.[39munique())[38;5;132;01m}[39;00m[38;5;124m [39m[38;5;132;01m{[39;00mdata_df[kelas][38;5;241m.[39munique()[38;5;132;01m}[39;00m[38;5;124m"[39m)
